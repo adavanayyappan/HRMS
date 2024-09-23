@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct SplashScreenView: View {
+    
+    @State var isActive: Bool = false
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geometry in
+            ZStack {
+                if isActive {
+                    LoginScreenView()
+                } else {
+                    Image.splashscreen
+                        .resizable()
+                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+                        .clipped()
+                        .edgesIgnoringSafeArea(.all)
+                }
+            }
+        }
+        .onAppear {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+                withAnimation {
+                    self.isActive = true
+                }
+            }
+        }
     }
+        
 }
 
-#Preview {
-    SplashScreenView()
+struct SplashScreenView_Previews: PreviewProvider {
+    static var previews: some View {
+        SplashScreenView()
+    }
 }

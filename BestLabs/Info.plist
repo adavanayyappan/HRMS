@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;array&gt;
+	&lt;string&gt;brownbold.ttf&lt;/string&gt;
+&lt;/array&gt;
+&lt;/plist&gt;</key>
+	<string></string>
+	<key>NSCameraUsageDescription</key>
+	<string>I need access to the camera in order render live feed</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to provide better services.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need your location to provide better services even when the app is in the background.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>brownbold.ttf</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>bsnet.biz</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
+			</dict>
+		</dict>
+	</dict>
+</dict>
+</plist>

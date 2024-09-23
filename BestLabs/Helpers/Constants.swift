@@ -6,3 +6,24 @@
 //
 
 import Foundation
+
+enum Constants: String {
+    case baseUrl = "http://portal.bsnet.biz/hrms/api/"
+    case loginUrl = "users/login"
+    case timeSheetUrl = "attendance/punchinglist"
+    case uploadFaceUrl = "attendance/addFace"
+    case imageURL = "http://portal.bsnet.biz/hrms/media/face/";
+    case punchingstatusUrl = "attendance/punchingstatus"
+    case punchingUrl = "attendance/punching"
+}
+
+struct AppStorageKeys {
+    static let isLoggedIn = "isLoggedIn"
+    static let KEY_EMP_ID = "empID"
+    static let KEY_CLIENT_ID = "clientID"
+    static let KEY_TOKEN = "token"
+    static let KEY_NAME = "empName"
+    static let KEY_ISLOGGEDIN = "isLoggedIn"
+    static let KEY_EMP_IMAGE = "faceImage"
+}
+

@@ -104,8 +104,5 @@ struct LeavecardView: View {
         
     }
 }
-#Preview {
-    LoginView()
-}
 
 

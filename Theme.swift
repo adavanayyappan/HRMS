@@ -43,7 +43,7 @@ enum Theme: String, CaseIterable, Identifiable {
              .magenta,
              .navy,
              .oxblood,
-             .purple: return .white
+             .purple: return .black
         }
     }
 

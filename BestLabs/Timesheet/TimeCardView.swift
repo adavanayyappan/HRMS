@@ -7,12 +7,54 @@
 
 import SwiftUI
 
-struct CardView: View {
+struct TimeCardView: View {
+    
+    var item: TimeEntry
+    var convertedDate : String = ""
+    var convertedYear : String = ""
+    
+    init(item: TimeEntry) {
+        self.item = item
+        guard let date = Dater.shared.date(from: item.dateFormat, format: "dd-MM-yyyy") else {
+            return
+        }
+        self.convertedDate = Dater.shared.string(from: date, format: "dd") ?? ""
+        self.convertedYear = Dater.shared.string(from: date, format: "EEE, MMM \nyyyy") ?? ""
+    }
+    
     var body: some View {
         HStack {
-            let data = ["21 Jan 24", "09.00 AM", "05.00 AM","08.00 Working HRS"]
-            ForEach(data, id: \.self) { item in
-                Text(item)
+            VStack(alignment: .center){
+                Text(convertedDate)
+                .multilineTextAlignment(.center)
+                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
+                .frame(maxWidth: .infinity, alignment: .center)
+                .foregroundColor(.black)
+                
+                Text(convertedYear)
+                .multilineTextAlignment(.center)
+                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                .frame(maxWidth: .infinity, alignment: .center)
+                .foregroundColor(.black)
+            }
+            Text(item.startTime)
+            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+            .frame(maxWidth: .infinity, alignment: .center)
+            .foregroundColor(.black)
+            
+            Text(item.endTime ?? "")
+            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+            .frame(maxWidth: .infinity, alignment: .center)
+            .foregroundColor(.black)
+            
+            VStack{
+                Text(item.totalHours ?? "")
+                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
+                .frame(maxWidth: .infinity, alignment: .center)
+                .foregroundColor(.black)
+                
+                Text("Working Hours")
+                .multilineTextAlignment(.center)
                 .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
                 .frame(maxWidth: .infinity, alignment: .center)
                 .foregroundColor(.black)

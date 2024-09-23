@@ -1,0 +1,50 @@
+{
+  "buildCommand" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e9844e07d152fb1a109b875f0a04486fd34"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e980c0e4f762db9e099bcccf6301d505a18"
+    },
+    {
+      "guid" : "bfdfe7dc352907fc980b868725387e98f8aec71da154f7c9b9fbb8d65dccd1f4"
+    }
+  ],
+  "containerPath" : "/Users/AD20315262/Downloads/BestLabs/Pods/Pods.xcodeproj",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/AD20315262/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/AD20315262/Library/Developer/Xcode/DerivedData/Pods-gbkspisyabrdgjcwffxrpgokhaor/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/AD20315262/Library/Developer/Xcode/DerivedData/Pods-gbkspisyabrdgjcwffxrpgokhaor/Index.noindex/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Release",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : false,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : false
+}

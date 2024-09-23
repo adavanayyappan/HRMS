@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4F175BC0-2DEB-4679-9BD7-E3932A52FCB3"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7E20B9D3-1913-4A71-9EE0-042359A0FE26"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BestLabs/NetworkManager/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "fetchData(url:method:headers:body:responseType:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7E20B9D3-1913-4A71-9EE0-042359A0FE26 - 47047e7739819a05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "1755">
+               </Location>
+               <Location
+                  uuid = "7E20B9D3-1913-4A71-9EE0-042359A0FE26 - 47047e7739819a05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "1635">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A87B71A2-E01B-4856-AF2B-74E9FF8C1F9E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BestLabs/Timesheet/TimesheetViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "getTimeSheetData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A87B71A2-E01B-4856-AF2B-74E9FF8C1F9E - f8408e2b1e8bf15a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.TimesheetViewModel.getTimeSheetData() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/Timesheet/TimesheetViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "2324">
+               </Location>
+               <Location
+                  uuid = "A87B71A2-E01B-4856-AF2B-74E9FF8C1F9E - f8408e2b1e8bf0e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.TimesheetViewModel.getTimeSheetData() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/Timesheet/TimesheetViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "2252">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F429F5C7-0884-4D0D-8325-2A4CADFC3342"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BestLabs/FaceRecgonize/AddCameraViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F429F5C7-0884-4D0D-8325-2A4CADFC3342 - c1da1cdfd49c007a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.AddCameraViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/FaceRecgonize/AddCameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "3448">
+               </Location>
+               <Location
+                  uuid = "F429F5C7-0884-4D0D-8325-2A4CADFC3342 - c1da1cdfd49c00bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.AddCameraViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/FaceRecgonize/AddCameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "4031">
+               </Location>
+               <Location
+                  uuid = "F429F5C7-0884-4D0D-8325-2A4CADFC3342 - c1da1cdfd49c00bc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.AddCameraViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/FaceRecgonize/AddCameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "609">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24732747-AB9F-476F-8F14-F9E02709EA02"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BestLabs/FaceRecgonize/IdentifyCameraViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "24732747-AB9F-476F-8F14-F9E02709EA02 - e311dfa968657341"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.IdentifyCameraViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/FaceRecgonize/IdentifyCameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "557">
+               </Location>
+               <Location
+                  uuid = "24732747-AB9F-476F-8F14-F9E02709EA02 - e311dfa968657723"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.IdentifyCameraViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/FaceRecgonize/IdentifyCameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "24732747-AB9F-476F-8F14-F9E02709EA02 - e311dfa968657550"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.IdentifyCameraViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/FaceRecgonize/IdentifyCameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "567">
+               </Location>
+               <Location
+                  uuid = "24732747-AB9F-476F-8F14-F9E02709EA02 - e311dfa968657550"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.IdentifyCameraViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/FaceRecgonize/IdentifyCameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "546">
+               </Location>
+               <Location
+                  uuid = "24732747-AB9F-476F-8F14-F9E02709EA02 - e311dfa96865740a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BestLabs.IdentifyCameraViewController.viewDidLoad() -&gt; ()"
+                  moduleName = "BestLabs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/FaceRecgonize/IdentifyCameraViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "594">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B533EB1-86DA-4789-BAD2-AF505329A1BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BestLabs/FaceRecgonize/AddCameraViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "uploadFaceRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "598F3D92-4963-4A91-AA10-3DB0E221C4F7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BestLabs/FaceRecgonize/AddCameraViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "uploadFaceRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

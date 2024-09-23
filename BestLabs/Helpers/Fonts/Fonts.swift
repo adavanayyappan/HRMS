@@ -5,4 +5,16 @@
 //  Created by Adavan Ayyappan on 22/06/24.
 //
 
-import Foundation
+import SwiftUI
+
+struct Fonts {
+    struct CustomFont {
+        static let brownBold = "brownbold"
+    }
+
+    // Example for adding sizes
+    static func custom(_ name: String, size: CGFloat) -> Font {
+        return Font.custom(name, size: size)
+    }
+}
+
