@@ -16,6 +16,8 @@
 	<string>We need your location to provide better services.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>We need your location to provide better services even when the app is in the background.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photo library to select images.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>brownbold.ttf</string>

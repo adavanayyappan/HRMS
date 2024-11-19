@@ -7,43 +7,66 @@
 
 import SwiftUI
 
-struct ClaimManagementView_Previews: PreviewProvider {
-    static var previews: some View {
-        ClaimManagementView()
-    }
-}
 
 struct ClaimManagementView: View {
-    @State private var colorCards: [ColorCard] = ColorCard.sampleData
-
+    @EnvironmentObject var viewModel: ClaimManagementViewModel
+    @State private var claimItem: ClaimType? = nil
+    @State private var showModal: Bool = false
 
     var body: some View {
         VStack {
-            HStack {
-                Text("Claim Summary")
-                    .foregroundColor(.black)
-                    .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
-                    .padding(
-                        EdgeInsets(
-                            top: 10,
-                            leading: 10,
-                            bottom: 10,
-                            trailing: 10
-                        )
-                    )
-                CircleButton()
-            }
-            
-    
-            List {
-                ForEach(colorCards) { colorCard in
-                    LeavebalancecardView(colorCard: colorCard)
+            if viewModel.isLoading {
+                ProgressView("Loading...")
+            } else if let errorMessage = viewModel.errorMessage {
+                EmptyView()
+                    .foregroundColor(.red)
+            } else {
+                VStack {
+                    ZStack(alignment: .top) {
+                        ScrollView(.horizontal) {
+                            HStack{
+                                ForEach(viewModel.claimTypeData) { item in
+                                    ClaimBoxView(item: item, selectedItem: $claimItem)
+                                        .listRowInsets(EdgeInsets())
+                                        .onTapGesture {
+                                            claimItem = item
+                                            showModal = true
+                                        }
+                                }
+                                
+                            }.padding(
+                                EdgeInsets(
+                                    top: 0,
+                                    leading: 10,
+                                    bottom: 5,
+                                    trailing: 10
+                                )
+                            )
+                        }
+                        CircleButton()
+                            .onTapGesture {
+                                claimItem = nil
+                                showModal = true
+                            }
+                    }
+                    List {
+                        ForEach(viewModel.claimRequestData) { item in
+                            ClaimListView(item: item)
+                                .listRowInsets(EdgeInsets())
+                        }
+                    }
+                    .listStyle(.plain)
+                    .frame(maxWidth: .infinity)
+                    .frame(maxHeight: .infinity)
                 }
             }
-            .listStyle(.plain)
-            .frame(maxWidth: .infinity)
-            .frame(maxHeight: .infinity)
         }
-        .foregroundColor(.black)
+        .sheet(isPresented: $showModal) {
+            ClaimSubmitView(selectedClaimItem: $claimItem)
+        }
+        .onAppear {
+            viewModel.getClaimTypeData()
+            viewModel.getClaimRequestData()
+        }
     }
 }

@@ -24,7 +24,7 @@ class ImageFetcher {
         task.resume()
     }
     
-    static func uploadImage(url: URL, image: UIImage, parameters: [String: String], headers: [String: String], completion: @escaping (Result<Data, Error>) -> Void) {
+    static func uploadImage(url: URL, image: UIImage, fileName: String = "face_image", parameters: [String: String], headers: [String: String], completion: @escaping (Result<Data, Error>) -> Void) {
             // Create the URLRequest object
             var request = URLRequest(url: url)
             request.httpMethod = "POST"
@@ -56,7 +56,7 @@ class ImageFetcher {
             task.resume()
         }
         
-    static func createMultipartBody(parameters: [String: String], boundary: String, image: UIImage) -> Data {
+    static func createMultipartBody(parameters: [String: String], boundary: String, image: UIImage, fileName: String = "face_image") -> Data {
             var body = Data()
             
             // Append parameters
@@ -69,7 +69,7 @@ class ImageFetcher {
             // Append image data
             if let imageData = image.jpegData(compressionQuality: 1.0) {
                 body.append("--\(boundary)\r\n".data(using: .utf8)!)
-                body.append("Content-Disposition: form-data; name=\"face_image\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
+                body.append("Content-Disposition: form-data; name=\"\(fileName)\"; filename=\"image.jpg\"\r\n".data(using: .utf8)!)
                 body.append("Content-Type: image/jpeg\r\n\r\n".data(using: .utf8)!)
                 body.append(imageData)
                 body.append("\r\n".data(using: .utf8)!)

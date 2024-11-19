@@ -56,7 +56,7 @@ struct DashboardAttendanceView: View {
             )
             .padding(
                 EdgeInsets(
-                    top: 25,
+                    top: 15,
                     leading: 10,
                     bottom: 0,
                     trailing: 10
@@ -103,7 +103,7 @@ struct DashboardAttendanceView: View {
             }
             .padding(
                 EdgeInsets(
-                    top: 25,
+                    top: 15,
                     leading: 10,
                     bottom: 25,
                     trailing: 10

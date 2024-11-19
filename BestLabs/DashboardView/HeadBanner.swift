@@ -24,7 +24,7 @@ struct HeaderBanner: View {
                     .foregroundColor(.white)
                     .padding(
                         EdgeInsets(
-                            top: 0,
+                            top: 50,
                             leading: 30,
                             bottom: 25,
                             trailing: 10

@@ -1,13 +1,15 @@
 //
-//  LoginScreenView.swift
+//  ChangePasswordView.swift
 //  BestLabs
 //
-//  Created by Suresh Swaminathan on 27/02/24.
+//  Created by Adavan Ayyappan on 08/11/24.
 //
 
 import SwiftUI
-struct LoginScreenView: View {
-    @StateObject private var viewModel = LoginViewModel()
+
+struct ChangePasswordView: View {
+    @StateObject private var viewModel = ChangePasswordViewModel()
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
         GeometryReader { geometry in
@@ -20,25 +22,8 @@ struct LoginScreenView: View {
                         .clipped()
                     
                     VStack(alignment: .leading, spacing: 20) {
-                        Text("Welcome")
+                        Text("Change Password")
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
-                        Text("Login to Continue")
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                        
-                        TextField("E-mail or mobile number", text: $viewModel.username)
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                        
-                        Divider()
-                            .padding(.horizontal, 10)
-                            .background(Color.gray)
-                        
-                        if let emailError = viewModel.emailError {
-                            Text(emailError)
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                                .foregroundColor(.red)
-                        }
                         
                         SecureField("Password", text: $viewModel.password)
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
@@ -54,11 +39,27 @@ struct LoginScreenView: View {
                                 .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
                                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                         }
+                      
+                        
+                        SecureField("Confirm Password", text: $viewModel.confirmPassword)
+                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                        
+                        Divider()
+                            .frame(height: 1)
+                            .padding(.horizontal, 10)
+                            .background(Color.gray)
+                        
+                        if let passwordError = viewModel.confirmPasswordError {
+                            Text(passwordError)
+                                .foregroundColor(.red)
+                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                        }
                     
                         Button(action: {
                             viewModel.postLoginData()
                         }) {
-                            Text("Login")
+                            Text("Confirm")
                                 .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
                                 .frame(maxWidth: .infinity)
                                 .padding()
@@ -68,13 +69,11 @@ struct LoginScreenView: View {
                         }
                         .disabled(!viewModel.isFormValid)
                         
-                        Button(action: {
-                            
-                        }) {
-                            Text("Forgot Password?")
+                        if viewModel.passwordSuccess {
+                            Text("Password changed successfully")
+                                .foregroundColor(.green)
                                 .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                                .foregroundColor(Color.primaryColor)
+                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                         }
                         
                         if let passwordError = viewModel.errorMessage {
@@ -99,22 +98,20 @@ struct LoginScreenView: View {
                         LoadingView()
                             .frame(width: 150, height: 150)
                     }
-                    
-                    NavigationLink(destination: MainTabbedView(), isActive: $viewModel.loginSuccess) {
-                        EmptyView()
-                    }
                 }
                 .frame(width: geometry.size.width, height: geometry.size.height)
                 .clipped()
                 .edgesIgnoringSafeArea(.all)
             }
+            .navigationBarBackButtonHidden(true) // Hide the default back button
+            .navigationBarItems(leading: Button(action: {
+                // Custom back action
+                self.presentationMode.wrappedValue.dismiss()
+            }) {
+                Image(systemName: "chevron.left") // System back arrow
+                    .foregroundColor(.white) // Custom color
+            })
         }
-    }
-}
-
-struct LoginScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginScreenView()
     }
 }
 

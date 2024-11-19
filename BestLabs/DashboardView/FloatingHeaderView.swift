@@ -18,7 +18,7 @@ struct FloatingHeaderView: View {
                         ProgressView()
                 }
         }
-        .frame(width: 150, height: 200)
+        .frame(width: 120, height: 170)
         .background(
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.white)
@@ -26,7 +26,7 @@ struct FloatingHeaderView: View {
         )
         .padding(
             EdgeInsets(
-                top:250,
+                top:200,
                 leading: 20,
                 bottom: 0,
                 trailing: 10

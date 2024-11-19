@@ -10,11 +10,23 @@ import Foundation
 enum Constants: String {
     case baseUrl = "http://portal.bsnet.biz/hrms/api/"
     case loginUrl = "users/login"
+    case changePasswordUrl = "users/changepassword"
     case timeSheetUrl = "attendance/punchinglist"
     case uploadFaceUrl = "attendance/addFace"
     case imageURL = "http://portal.bsnet.biz/hrms/media/face/";
     case punchingstatusUrl = "attendance/punchingstatus"
     case punchingUrl = "attendance/punching"
+    case leavelistUrl = "Leave/leavelist"
+    case leaveTypeUrl = "leaveType/dropdownlist"
+    case leaverequestlistUrl = "Leave/requestlist"
+    case leaveApprovalListUrl = "Leave/myapproval"
+    case claimlistUrl = "claim/claimgroup"
+    case claimrequestlistUrl = "claim/requestlist"
+    case claimApprovalListUrl = "claim/myapproval"
+    case leaveApply = "Leave/apply"
+    case claimApply = "claim/apply"
+    case leaveUpdatestatus = "Leave/updatestatus"
+    case claimUpdatestatus = "claim/updatestatus"
 }
 
 struct AppStorageKeys {

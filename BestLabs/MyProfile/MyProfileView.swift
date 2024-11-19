@@ -29,7 +29,7 @@ struct MyProfileView: View {
                     .frame(width: 150, height: 150)
                     .background(
                         RoundedRectangle(cornerRadius: 5)
-//                            .fill(Color.primarycolor)
+                            .fill(Color.primaryColor)
                             .shadow(color: .gray, radius: 1, x: 0, y: 2)
                     )
                     
@@ -45,13 +45,8 @@ struct MyProfileView: View {
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
                     }
                     
-                    NavigationLink(destination: TermsAndConditionsView()) {
-                        Text("Terms and Conditions")
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                    }
-                    
-                    NavigationLink(destination: PrivacyPolicyView()) {
-                        Text("Privacy Policy")
+                    NavigationLink(destination: ChangePasswordView()) {
+                        Text("CHange Password")
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
                     }
                     

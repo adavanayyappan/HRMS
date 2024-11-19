@@ -30,7 +30,7 @@ struct TimeEntry: Codable, Identifiable {
         case month
         case startTime = "satrtTime"
         case endTime
-        case totalHours
+        case totalHours = "totalHrs"
     }
 }
 

@@ -14,8 +14,8 @@
             filePath = "BestLabs/LoginView/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "postLoginData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,72 +30,10 @@
             filePath = "BestLabs/LoginView/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "postLoginData()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B2B3CD08-04B7-404C-806D-2BDFE1A7EBB0 - de4ef41dcb7f85de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 (BestLabs.LoginUserModel) -&gt; () in BestLabs.LoginViewModel.postLoginData() -&gt; ()"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/LoginView/LoginViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "1465">
-               </Location>
-               <Location
-                  uuid = "B2B3CD08-04B7-404C-806D-2BDFE1A7EBB0 - de4ef41dcb7f85de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 (BestLabs.LoginUserModel) -&gt; () in BestLabs.LoginViewModel.postLoginData() -&gt; ()"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/LoginView/LoginViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "2568">
-               </Location>
-               <Location
-                  uuid = "B2B3CD08-04B7-404C-806D-2BDFE1A7EBB0 - de4ef41dcb7f85de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 (BestLabs.LoginUserModel) -&gt; () in BestLabs.LoginViewModel.postLoginData() -&gt; ()"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/LoginView/LoginViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "1446">
-               </Location>
-               <Location
-                  uuid = "B2B3CD08-04B7-404C-806D-2BDFE1A7EBB0 - de4ef41dcb7f85de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #4 (BestLabs.LoginUserModel) -&gt; () in BestLabs.LoginViewModel.postLoginData() -&gt; ()"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/LoginView/LoginViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "2855">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -108,8 +46,8 @@
             filePath = "BestLabs/LoginView/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "postLoginData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -124,8 +62,8 @@
             filePath = "BestLabs/LoginView/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "postLoginData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -140,8 +78,8 @@
             filePath = "BestLabs/LoginView/LoginViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "postLoginData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -160,38 +98,6 @@
             endingLineNumber = "70"
             landmarkName = "fetchData(url:method:headers:body:responseType:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E230F32E-5FE3-494E-80DC-F5E3290462BC - 94b695007a3ba4a6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((data: Foundation.Data, response: __C.NSURLResponse)) throws -&gt; Foundation.Data in BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "384">
-               </Location>
-               <Location
-                  uuid = "E230F32E-5FE3-494E-80DC-F5E3290462BC - 94b695007a3ba4c1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((data: Foundation.Data, response: __C.NSURLResponse)) throws -&gt; Foundation.Data in BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "71"
-                  endingLineNumber = "71"
-                  offsetFromSymbolStart = "756">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -208,38 +114,6 @@
             endingLineNumber = "73"
             landmarkName = "fetchData(url:method:headers:body:responseType:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A6990D8A-AD48-48E5-9428-5BB1C85AFBB7 - 94b695007a3ba722"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((data: Foundation.Data, response: __C.NSURLResponse)) throws -&gt; Foundation.Data in BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "74"
-                  endingLineNumber = "74"
-                  offsetFromSymbolStart = "1178">
-               </Location>
-               <Location
-                  uuid = "A6990D8A-AD48-48E5-9428-5BB1C85AFBB7 - 94b695007a3ba703"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((data: Foundation.Data, response: __C.NSURLResponse)) throws -&gt; Foundation.Data in BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "73"
-                  endingLineNumber = "73"
-                  offsetFromSymbolStart = "1178">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -256,38 +130,6 @@
             endingLineNumber = "75"
             landmarkName = "fetchData(url:method:headers:body:responseType:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "A85A2E4B-E6FB-45B7-A85F-4C2B87A4134F - 94b695007a3ba79c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((data: Foundation.Data, response: __C.NSURLResponse)) throws -&gt; Foundation.Data in BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "1613">
-               </Location>
-               <Location
-                  uuid = "A85A2E4B-E6FB-45B7-A85F-4C2B87A4134F - 94b695007a3ba77d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((data: Foundation.Data, response: __C.NSURLResponse)) throws -&gt; Foundation.Data in BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "1613">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -304,38 +146,6 @@
             endingLineNumber = "77"
             landmarkName = "fetchData(url:method:headers:body:responseType:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8004212D-9E85-4E6E-80F8-9E2DE4FFD8EC - 94b695007a3ba7de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((data: Foundation.Data, response: __C.NSURLResponse)) throws -&gt; Foundation.Data in BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "1717">
-               </Location>
-               <Location
-                  uuid = "8004212D-9E85-4E6E-80F8-9E2DE4FFD8EC - 94b695007a3ba7bf"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 ((data: Foundation.Data, response: __C.NSURLResponse)) throws -&gt; Foundation.Data in BestLabs.NetworkManager.fetchData&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(url: Foundation.URL, method: BestLabs.HTTPMethod, headers: Swift.Optional&lt;Swift.Dictionary&lt;Swift.String, Swift.String&gt;&gt;, body: Swift.Optional&lt;Foundation.Data&gt;, responseType: &#x3c4;_0_0.Type) -&gt; Combine.AnyPublisher&lt;&#x3c4;_0_0, Swift.Error&gt;"
-                  moduleName = "BestLabs"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/AD20315262/Downloads/BestLabs/BestLabs/NetworkManager/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "77"
-                  endingLineNumber = "77"
-                  offsetFromSymbolStart = "1717">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

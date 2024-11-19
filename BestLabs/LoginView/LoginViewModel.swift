@@ -18,6 +18,7 @@ class LoginViewModel: ObservableObject {
     @Published var isFormValid: Bool = false
     @Published var loginSuccess: Bool = false
     @Published var errorMessage: String?
+    @Published var isLoading = false
     
     private var cancellables = Set<AnyCancellable>()
     
@@ -61,6 +62,9 @@ class LoginViewModel: ObservableObject {
         
         guard let formBody = networkManager.createFormBody(from: formData) else { return }
         
+        isLoading = true
+        errorMessage = nil
+        
         networkManager.fetchData(
             url: url,
             method: .post,
@@ -68,6 +72,8 @@ class LoginViewModel: ObservableObject {
             responseType: LoginUserModel.self
         )
         .sink { completion in
+            self.isLoading = false
+            
             switch completion {
             case .failure(let error):
                 if let networkError = error as? NetworkError {
@@ -85,16 +91,16 @@ class LoginViewModel: ObservableObject {
             
             self?.data = data
             
-            guard let data = self?.data, data.status == "ok" else {
-                self?.errorMessage = "Login Failed. Please Try Again"
+            guard let data = self?.data, data.status == "ok", let result = data.result else {
+                self?.errorMessage =  (data.message != nil) ? data.message : "Login Failed. Please Try Again"
                 return
             }
             
-            AppStorageManager.setValue(data.result.token, forKey: AppStorageKeys.KEY_TOKEN)
-            AppStorageManager.setValue(data.result.employeeID, forKey: AppStorageKeys.KEY_EMP_ID)
-            AppStorageManager.setValue(data.result.employeeClientID, forKey: AppStorageKeys.KEY_CLIENT_ID)
-            AppStorageManager.setValue(data.result.employeeName, forKey: AppStorageKeys.KEY_NAME)
-            AppStorageManager.setValue(data.result.faceImage, forKey: AppStorageKeys.KEY_EMP_IMAGE)
+            AppStorageManager.setValue(result.token, forKey: AppStorageKeys.KEY_TOKEN)
+            AppStorageManager.setValue(result.employeeID, forKey: AppStorageKeys.KEY_EMP_ID)
+            AppStorageManager.setValue(result.employeeClientID, forKey: AppStorageKeys.KEY_CLIENT_ID)
+            AppStorageManager.setValue(result.employeeName, forKey: AppStorageKeys.KEY_NAME)
+            AppStorageManager.setValue(result.faceImage, forKey: AppStorageKeys.KEY_EMP_IMAGE)
             
             self?.loginSuccess = true
         }

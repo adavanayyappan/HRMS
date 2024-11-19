@@ -10,6 +10,7 @@ import AVFoundation
 import Vision
 import Combine
 import CoreLocation
+import SwiftUICore
 
 struct PunchModel: Codable {
     let status: String
@@ -102,7 +103,7 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
         changeButton.setTitle("Change Face", for: .normal)
         changeButton.addTarget(self, action: #selector(captureButtonTapped), for: .touchUpInside)
         changeButton.translatesAutoresizingMaskIntoConstraints = false
-//        changeButton.backgroundColor = .primarycolor
+        changeButton.backgroundColor = .brown
         changeButton.tintColor = .white
         view.addSubview(changeButton)
         

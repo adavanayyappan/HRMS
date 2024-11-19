@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct CircleButton: View {
-    @State private var tapped = Bool()
-    @State private var counter: Int = 0
-    @State var isPresented = false
     var body: some View {
-//        NavigationStack {
             VStack {
                 ZStack {
                     Circle()
@@ -32,46 +28,6 @@ struct CircleButton: View {
                         trailing: 10
                     )
                 )
-                .scaleEffect(tapped ? 0.95 : 1)
-                .onTapGesture {
-                    tapped.toggle()
-                //    LoginScreenView()
-                    
-              /*      isPresented =  true
-                        .navigationDestination(isPresented: $isPresented, destination: LoginScreenView())
-                    */
-               // }
-                //             .navigationDestination(isPresented: $navigated, destination: { LeaveManagementView()
-                //
-                //                                //.navigationBarBackButtonHidden(true)
-                //                                .navigationTitle("BestLabs ")
-                //                                .foregroundColor(.white)
-                //                                .toolbarBackground(
-                //                                    Color.black,
-                //                                    for: .navigationBar)
-                //                                .toolbarBackground(.visible, for: .navigationBar)
-                //
-                //
-                //                                               })//counter += 1
-                
-                
-                
-                //LeaveManagementView()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) {
-                    tapped = false
-                }
-            }
         }
-        //            Text("Tapped \(counter) times")
-        //                .foregroundColor(.black)
-        //                .font(.title2)
-        //                .offset(y: 30)
-        // }
-            
     }
-       
-    
-//    }
-    
-        
 }

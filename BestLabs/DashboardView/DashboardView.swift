@@ -16,14 +16,14 @@ struct DashboardView: View {
                 VStack {
                     ZStack(alignment: .leading) {
                         HeaderBanner()
-                            .frame(height: 300)
+                            .frame(height: 250)
                         FloatingHeaderView()
                     }
-                    .frame(height: 300)
+                    .frame(height: 250)
                     DashboardAttendanceView(timestatus: viewModel.data, showModal: $showModal)
                         .padding(
                             EdgeInsets(
-                                top: 100,
+                                top: 60,
                                 leading: 10,
                                 bottom: 0,
                                 trailing: 10

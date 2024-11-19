@@ -48,7 +48,9 @@ enum TabbedItems: Int, CaseIterable{
 struct MainTabbedView: View {
     
     @State var selectedTab = 0
-    @StateObject private var viewModel = TimesheetViewModel()
+    @StateObject private var timeviewModel = TimesheetViewModel()
+    @StateObject private var leaveviewModel = LeaveManagementViewModel()
+    @StateObject private var claimviewModel = ClaimManagementViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -58,13 +60,15 @@ struct MainTabbedView: View {
                 
                 TimesheetView()
                     .tag(1)
-                    .environmentObject(viewModel)
+                    .environmentObject(timeviewModel)
                 
-                LeaveManagementView()
+                LeaveTabView()
                     .tag(2)
+                    .environmentObject(leaveviewModel)
 
-                ClaimManagementView()
+                ClaimTabView()
                     .tag(3)
+                    .environmentObject(claimviewModel)
 
                 MyProfileView()
                     .tag(4)
@@ -87,17 +91,15 @@ struct MainTabbedView: View {
 
 extension MainTabbedView {
     func CustomTabItem(imageName: String, title: String, isActive: Bool) -> some View{
-        VStack(spacing: 10){
+        VStack(spacing: 5){
             Image(imageName)
                 .resizable()
                 .renderingMode(.template)
-//                .foregroundColor(isActive ? .primarycolor : .gray)
+                .foregroundColor(isActive ? Color.primarycolor : .gray)
                 .frame(width: 20, height: 20)
-            if isActive {
                 Text(title)
-                    .font(.system(size: 12))
-//                    .foregroundColor(isActive ? .primarycolor : .gray)
-            }
+                    .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 8))
+                    .foregroundColor(isActive ? Color.primarycolor : .gray)
         }
     }
 }

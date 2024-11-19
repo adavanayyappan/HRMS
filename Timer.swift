@@ -12,8 +12,6 @@ struct Timer: View {
 
     var body: some View {
     VStack {
-
- 
         HStack {
             ForEach(data, id: \.self) { item in
                 VStack{

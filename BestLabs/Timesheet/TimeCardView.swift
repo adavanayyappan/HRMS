@@ -40,12 +40,12 @@ struct TimeCardView: View {
             Text(item.startTime)
             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
             .frame(maxWidth: .infinity, alignment: .center)
-            .foregroundColor(.black)
+            .foregroundColor(.gray)
             
             Text(item.endTime ?? "")
             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
             .frame(maxWidth: .infinity, alignment: .center)
-            .foregroundColor(.black)
+            .foregroundColor(.gray)
             
             VStack{
                 Text(item.totalHours ?? "")
@@ -63,9 +63,17 @@ struct TimeCardView: View {
         .frame(maxWidth: .infinity, alignment: .center)
         .frame(height: 100)
         .background(
-         RoundedRectangle(cornerRadius: 25)
+         RoundedRectangle(cornerRadius: 5)
              .fill(Color.white)
              .shadow(color: .gray, radius: 2, x: 0, y: 2)
+        )
+        .padding(
+            EdgeInsets(
+                top: 5,
+                leading: 10,
+                bottom: 5,
+                trailing: 10
+            )
         )
     }
 }
