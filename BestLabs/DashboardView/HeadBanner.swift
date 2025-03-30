@@ -24,29 +24,29 @@ struct HeaderBanner: View {
                     .foregroundColor(.white)
                     .padding(
                         EdgeInsets(
-                            top: 50,
+                            top: 130,
                             leading: 30,
                             bottom: 25,
                             trailing: 10
                         )
                     )
-                VStack(spacing: 10) {
+                VStack(spacing: 5) {
                     Text("\(name)")
                         .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
                         .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     Text("iOS Developer")
-                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 15))
+                        .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 14))
                         .foregroundColor(.white)
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     
                 }
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(
                     EdgeInsets(
-                        top: 60,
-                        leading: 10,
-                        bottom: 10,
+                        top: 40,
+                        leading: 180,
+                        bottom: 20,
                         trailing: 30
                     )
                 )

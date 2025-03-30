@@ -11,6 +11,8 @@ enum Constants: String {
     case baseUrl = "http://portal.bsnet.biz/hrms/api/"
     case loginUrl = "users/login"
     case changePasswordUrl = "users/changepassword"
+    case forgotPasswordUrl = "users/forgotpassword"
+    case resetPasswordUrl = "users/resetpassword"
     case timeSheetUrl = "attendance/punchinglist"
     case uploadFaceUrl = "attendance/addFace"
     case imageURL = "http://portal.bsnet.biz/hrms/media/face/";

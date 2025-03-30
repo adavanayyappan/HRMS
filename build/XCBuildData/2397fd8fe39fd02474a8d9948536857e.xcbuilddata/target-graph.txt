@@ -1,7 +1,0 @@
-Target dependency graph (3 targets)
-Target 'Pods-BestLabs' in project 'Pods'
-➜ Explicit dependency on target 'TensorFlowLiteC' in project 'Pods'
-➜ Explicit dependency on target 'TensorFlowLiteSwift' in project 'Pods'
-Target 'TensorFlowLiteSwift' in project 'Pods'
-➜ Explicit dependency on target 'TensorFlowLiteC' in project 'Pods'
-Target 'TensorFlowLiteC' in project 'Pods' (no dependencies)

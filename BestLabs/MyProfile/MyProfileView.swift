@@ -19,23 +19,30 @@ struct MyProfileView: View {
     var body: some View {
         NavigationView {
             VStack {
-                // Header
-                VStack {
-                    VStack() {
-                        AsyncImages(url: URL(string: "\(Constants.imageURL.rawValue)\(imagePath)")!) {
-                                    ProgressView()
-                            }
-                    }
-                    .frame(width: 150, height: 150)
-                    .background(
-                        RoundedRectangle(cornerRadius: 5)
-                            .fill(Color.primaryColor)
-                            .shadow(color: .gray, radius: 1, x: 0, y: 2)
-                    )
+                ZStack(alignment: .top) {
+                    Image.dashboardBg
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(height: 200)
+                        
                     
-                    Text(name) // Replace with the user's name
-                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
-                        .padding(.top, 8)
+                    VStack() {
+                        Spacer().frame(height: 80)
+                        AsyncImages(url: URL(string: "\(Constants.imageURL.rawValue)\(imagePath)")!) {
+                            ProgressView()
+                        }
+                        .frame(width: 150, height: 150)
+                        .background(
+                            RoundedRectangle(cornerRadius: 5)
+                                .fill(Color.primaryColor)
+                                .shadow(color: .gray, radius: 1, x: 0, y: 2)
+                        )
+                        
+                        Text(name) // Replace with the user's name
+                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
+                            .padding(.top, 8)
+                            .foregroundColor(.white)
+                    }
                 }
                 
                 // List items
@@ -46,7 +53,7 @@ struct MyProfileView: View {
                     }
                     
                     NavigationLink(destination: ChangePasswordView()) {
-                        Text("CHange Password")
+                        Text("Change Password")
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
                     }
                     
@@ -58,8 +65,12 @@ struct MyProfileView: View {
                             .foregroundColor(.red)
                     }
                 }
-                .listStyle(GroupedListStyle())
+                .background(Color.white)
+                .cornerRadius(30)
+                .padding(.top, 10)
+                .padding(.bottom, -30)
             }
+            .edgesIgnoringSafeArea(.all)
         }
     }
 }

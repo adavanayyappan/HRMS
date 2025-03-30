@@ -34,7 +34,7 @@ struct ClaimBoxView: View {
                     )
             }
         }
-        .frame(width: 80, height: 80)
+        .frame(width: 100, height: 80)
         .background(
                RoundedRectangle(cornerRadius: 5)
                    .fill(selectedItem == item ? .primarycolor : .white)

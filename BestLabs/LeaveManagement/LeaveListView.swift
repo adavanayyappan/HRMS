@@ -24,11 +24,11 @@ struct LeaveListView: View {
     
     var body: some View {
         ZStack{
-            HStack(spacing: 20) {
+            HStack {
                 VStack {
                     VStack {
                         Text(convertedMonth)
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                            .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 14))
                             .foregroundColor(.white)
                             .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     }
@@ -37,10 +37,13 @@ struct LeaveListView: View {
                         RoundedRectangle(cornerRadius: 0)
                             .fill(Color.primaryColor)
                     )
+                    .padding(.top, 1)
                     
                     Text(convertedDate)
-                        .foregroundColor(.black)
-                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
+                        .foregroundColor(.darkGray)
+                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 25))
+                    
+                    Spacer()
                     
                 }
                 .frame(width: 70, height: 70)
@@ -54,33 +57,41 @@ struct LeaveListView: View {
                         top: 10,
                         leading: 20,
                         bottom: 10,
-                        trailing: 0
+                        trailing: 10
                     )
                 )
                 
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text(item.LeaveGroupName ?? "")
-                        .foregroundColor(.black)
-                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                        .foregroundColor(.darkGray)
+                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
                         .padding(.top, 10)
                     
                     Text("From date: \(item.leaveFrom ?? "") -> To date: \(item.leaveTo ?? "")")
                         .foregroundColor(.gray)
-                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 11))
+                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
+                        .padding(.bottom, 5)
                     
                     if item.leaveStatus == "Approved" {
                         Text(item.leaveStatus ?? "")
                             .foregroundColor(.green)
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
-                            .padding(.bottom, 10)
+                            .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 12))
+                            .padding(.bottom, 5)
                     } else if item.leaveStatus == "Pending" {
                         Text(item.leaveStatus ?? "")
                             .foregroundColor(.yellow)
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
-                            .padding(.bottom, 10)
+                            .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 12))
+                            .padding(.bottom, 5)
                     } else {
                         Text(item.leaveStatus ?? "")
                             .foregroundColor(.red)
+                            .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 12))
+                            .padding(.bottom, 5)
+                    }
+                    
+                    if let remark = item.leaveRemarks {
+                        Text("Remark: \(remark)")
+                            .foregroundColor(.gray)
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
                             .padding(.bottom, 10)
                     }

@@ -28,18 +28,23 @@ struct ClaimListView: View {
                 VStack {
                     VStack {
                         Text(convertedMonth)
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                            .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 14))
                             .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
+                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
                     }
                     .frame(width: 70, height: 20)
                     .background(
                         RoundedRectangle(cornerRadius: 0)
                             .fill(Color.primaryColor)
                     )
+                    .padding(.top, 1)
+                    
                     Text(convertedDate)
-                        .foregroundColor(.black)
-                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
+                        .foregroundColor(.darkGray)
+                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 25))
+                    
+                    Spacer()
+                    
                 }
                 .frame(width: 70, height: 70)
                 .background(
@@ -56,29 +61,37 @@ struct ClaimListView: View {
                     )
                 )
                 
-                VStack(alignment: .leading, spacing: 10) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text(item.claimGroupName ?? "")
-                        .foregroundColor(.black)
+                        .foregroundColor(.darkGray)
                         .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
                         .padding(.top, 10)
                     
                     Text("Claim Amount: \(item.claimAmount ?? "")")
                         .foregroundColor(.gray)
                         .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 11))
+                        .padding(.top, 5)
                     
                     if item.claimStatus == "Approved" {
                         Text(item.claimStatus ?? "")
                             .foregroundColor(.green)
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
-                            .padding(.bottom, 10)
+                            .padding(.bottom, 5)
                     } else if item.claimStatus == "Pending" {
                         Text(item.claimStatus ?? "")
                             .foregroundColor(.yellow)
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
-                            .padding(.bottom, 10)
+                            .padding(.bottom, 5)
                     } else {
                         Text(item.claimStatus ?? "")
                             .foregroundColor(.red)
+                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
+                            .padding(.bottom, 5)
+                    }
+                    
+                    if let remark = item.claimRemarks {
+                        Text("Remark: \(remark)")
+                            .foregroundColor(.gray)
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
                             .padding(.bottom, 10)
                     }

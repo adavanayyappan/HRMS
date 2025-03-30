@@ -111,7 +111,7 @@ struct LeaveApproveView: View {
             .animation(.easeInOut, value: showAlert)
         )
         .onAppear {
-            viewModel.getLeaveApprovalData()
+//            viewModel.getLeaveApprovalData()
         }
     }
 }

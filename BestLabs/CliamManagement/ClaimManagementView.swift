@@ -65,8 +65,8 @@ struct ClaimManagementView: View {
             ClaimSubmitView(selectedClaimItem: $claimItem)
         }
         .onAppear {
-            viewModel.getClaimTypeData()
-            viewModel.getClaimRequestData()
+//            viewModel.getClaimTypeData()
+//            viewModel.getClaimRequestData()
         }
     }
 }

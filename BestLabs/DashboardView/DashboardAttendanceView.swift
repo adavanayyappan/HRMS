@@ -22,12 +22,14 @@ struct DashboardAttendanceView: View {
             Text("Attendance")
                 .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundColor(Color.textColor)
+                .padding(.leading, 30)
             
             VStack(spacing: 10) {
                 Text("\(Date(), formatter: DateFormatter.currentTime)")
                     .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
                     .frame(maxWidth: .infinity, alignment: .top)
-                    .foregroundColor(Color.primaryColor)
+                    .foregroundColor(Color.timeColor)
                     .padding(
                         EdgeInsets(
                             top: 5,
@@ -37,9 +39,9 @@ struct DashboardAttendanceView: View {
                         )
                     )
                 Text("\(Date(), formatter: DateFormatter.dayMonthYear)")
-                    .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
+                    .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
                     .frame(maxWidth: .infinity, alignment: .top)
-                    .foregroundColor(Color.primaryColor)
+                    .foregroundColor(Color.timeColor)
                 
                 Image.facescan
                     .resizable()
@@ -51,7 +53,7 @@ struct DashboardAttendanceView: View {
             .frame(width: 300, height: 300)
             .background(
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.white)
+                    .fill(Color.cardBackgroundColor)
                     .shadow(color: .gray, radius: 2, x: 0, y: 2)
             )
             .padding(
@@ -70,8 +72,12 @@ struct DashboardAttendanceView: View {
                             .frame(width: 30, height: 30)
                         Text(timestatus?.satrtTime ?? "--:--")
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
-                            .frame(maxWidth: .infinity-75
-                            )
+                            .frame(maxWidth: .infinity-75)
+                            .foregroundColor(Color.timeColor)
+                        Text("Check In")
+                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 13))
+                            .frame(maxWidth: .infinity-75)
+                            .foregroundColor(Color.timeColor)
                     }
                     
                     VStack{
@@ -80,8 +86,12 @@ struct DashboardAttendanceView: View {
                             .frame(width: 30, height: 30)
                         Text(timestatus?.endTime ?? "--:--")
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
-                            .frame(maxWidth: .infinity-75
-                            )
+                            .frame(maxWidth: .infinity-75)
+                            .foregroundColor(Color.timeColor)
+                        Text("Check Out")
+                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 13))
+                            .frame(maxWidth: .infinity-75)
+                            .foregroundColor(Color.timeColor)
                     }
                     
                     VStack{
@@ -90,23 +100,27 @@ struct DashboardAttendanceView: View {
                             .frame(width: 30, height: 30)
                         Text(timestatus?.totalHrs ?? "--:--")
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
-                            .frame(maxWidth: .infinity-75
-                            )
+                            .frame(maxWidth: .infinity-75)
+                            .foregroundColor(Color.timeColor)
+                        Text("Working Hours")
+                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 13))
+                            .frame(maxWidth: .infinity-75)
+                            .foregroundColor(Color.timeColor)
                     }
                 }
                 .frame(height: 125)
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .fill(Color.white)
+                        .fill(Color.cardBackgroundColor)
                         .shadow(color: .gray, radius: 2, x: 0, y: 2)
                 )
             }
             .padding(
                 EdgeInsets(
                     top: 15,
-                    leading: 10,
+                    leading: 30,
                     bottom: 25,
-                    trailing: 10
+                    trailing: 30
                 )
             )
         }

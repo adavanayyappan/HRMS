@@ -26,7 +26,7 @@ struct LeaveBoxView: View {
                 
                 Text(item.label)
                     .multilineTextAlignment(.center)
-                    .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 10))
+                    .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 10))
                     .foregroundColor(selectedItem == item ? .white : .primarycolor)
                     .padding(
                         EdgeInsets(

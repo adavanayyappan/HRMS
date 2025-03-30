@@ -22,6 +22,19 @@ class ClaimManagementViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
+    init(claimTypeData: [ClaimType], claimRequestData: [ClaimResponse.Claim], claimApprovalData: [ClaimResponse.Claim], errorMessage: String? = nil, isLoading: Bool = false, cancellables: Set<AnyCancellable> = Set<AnyCancellable>()) {
+        self.claimTypeData = claimTypeData
+        self.claimRequestData = claimRequestData
+        self.claimApprovalData = claimApprovalData
+        self.errorMessage = errorMessage
+        self.isLoading = isLoading
+        self.claimId = claimId
+        self.actionType = actionType
+        self.remarks = remarks
+        self.applySuccess = applySuccess
+        self.cancellables = cancellables
+    }
+    
     func getClaimTypeData() {
 
         let token: String = AppStorageManager.value(forKey: AppStorageKeys.KEY_TOKEN, defaultValue: "")

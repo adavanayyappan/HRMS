@@ -2,98 +2,113 @@
 //  LoginScreenView.swift
 //  BestLabs
 //
-//  Created by Suresh Swaminathan on 27/02/24.
+//
 //
 
 import SwiftUI
+
 struct LoginScreenView: View {
     @StateObject private var viewModel = LoginViewModel()
+    @State var forgotPassword: Bool = false
     
     var body: some View {
-        GeometryReader { geometry in
             NavigationView {
-                VStack {
-                    Image.splashscreen
-                        .resizable()
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .top)
-                        .frame(maxHeight: 250)
-                        .clipped()
-                    
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Welcome")
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
-                        Text("Login to Continue")
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                        
-                        TextField("E-mail or mobile number", text: $viewModel.username)
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                        
-                        Divider()
-                            .padding(.horizontal, 10)
-                            .background(Color.gray)
-                        
-                        if let emailError = viewModel.emailError {
-                            Text(emailError)
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                                .foregroundColor(.red)
-                        }
-                        
-                        SecureField("Password", text: $viewModel.password)
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                        
-                        Divider()
-                            .frame(height: 1)
-                            .padding(.horizontal, 10)
-                            .background(Color.gray)
-                        
-                        if let passwordError = viewModel.passwordError {
-                            Text(passwordError)
-                                .foregroundColor(.red)
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                        }
-                    
-                        Button(action: {
-                            viewModel.postLoginData()
-                        }) {
-                            Text("Login")
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(viewModel.isFormValid ? Color.primaryColor : Color.gray)
-                                .cornerRadius(40)
-                        }
-                        .disabled(!viewModel.isFormValid)
-                        
-                        Button(action: {
-                            
-                        }) {
-                            Text("Forgot Password?")
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
-                                .foregroundColor(Color.primaryColor)
-                        }
-                        
-                        if let passwordError = viewModel.errorMessage {
-                            Text(passwordError)
-                                .foregroundColor(.red)
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                ScrollView {
+                    VStack {
+                        ZStack(alignment: .top) {
+                            Image.dashboardBg
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: 200)
+                                .clipped()
+
+                            VStack {
+                                Spacer().frame(height: 80)
+
+                                VStack(alignment: .leading) {
+                                    Text("Welcome")
+                                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
+                                        .foregroundColor(.textColor)
+                                        .padding(.bottom, 1)
+                                    
+                                    Text("Login to Continue")
+                                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 13))
+                                        .foregroundColor(.gray)
+                                        
+                                    
+                                    TextField("E-mail or mobile number", text: $viewModel.username)
+                                        .padding(.top, 30)
+                                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                        .foregroundColor(.gray)
+                                    
+                                    Divider()
+                                        .padding(.horizontal, 10)
+                                        .background(Color.gray)
+                                    
+                                    if let emailError = viewModel.emailError {
+                                        Text(emailError)
+                                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                                            .foregroundColor(.red)
+                                    }
+                                    
+                                    SecureField("Password", text: $viewModel.password)
+                                        .padding(.top, 30)
+                                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                        .foregroundColor(.gray)
+                                    
+                                    Divider()
+                                        .frame(height: 1)
+                                        .padding(.horizontal, 10)
+                                        .background(Color.gray)
+                                    
+                                    if let passwordError = viewModel.passwordError {
+                                        Text(passwordError)
+                                            .foregroundColor(.red)
+                                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                                    }
+                                    
+                                    Button(action: {
+                                        viewModel.loginSuccess.toggle()
+//                                        viewModel.postLoginData()
+                                    }) {
+                                        Text("Login")
+                                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
+                                            .frame(maxWidth: .infinity)
+                                            .padding()
+                                            .foregroundColor(.white)
+                                            .background(viewModel.isFormValid ? Color.buttonBackgroundColor : Color.gray)
+                                    }
+                                    .cornerRadius(8)
+                                    .padding(.top, 30)
+                                    .disabled(!viewModel.isFormValid)
+                                    
+                                    Button(action: {
+                                        forgotPassword.toggle()
+                                    }) {
+                                        Text("Forgot Password?")
+                                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 13))
+                                            .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .leading)
+                                            .foregroundColor(.textColor)
+                                    }
+                                    .padding(.top, 20)
+                                    
+                                    if let passwordError = viewModel.errorMessage {
+                                        Text(passwordError)
+                                            .foregroundColor(.red)
+                                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                                    }
+                                }
+                                .padding(30)
+                            }
+                            .background(Color.white)
+                            .cornerRadius(30)
+                            .padding(.top, 180)
+                            .padding(.bottom, -30)
                         }
                     }
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .top)
-                    .frame(maxHeight: .infinity, alignment: .top)
-                    .padding(
-                        EdgeInsets(
-                            top: 50,
-                            leading: 20,
-                            bottom: 10,
-                            trailing: 20
-                        )
-                    )
                     
                     if viewModel.isLoading {
                         LoadingView()
@@ -103,11 +118,12 @@ struct LoginScreenView: View {
                     NavigationLink(destination: MainTabbedView(), isActive: $viewModel.loginSuccess) {
                         EmptyView()
                     }
+                    
+                    NavigationLink(destination: ForgotPasswordView(), isActive: $forgotPassword) {
+                        EmptyView()
+                    }
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .clipped()
                 .edgesIgnoringSafeArea(.all)
-            }
         }
     }
 }

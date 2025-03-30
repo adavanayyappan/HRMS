@@ -13,8 +13,15 @@ class TimesheetViewModel: ObservableObject {
     @Published var data: [TimeEntry] = []
     @Published var errorMessage: String?
     @Published var isLoading = false
+    var selectedDate: String = ""
     
     private var cancellables = Set<AnyCancellable>()
+    
+    init(data: [TimeEntry], errorMessage: String? = nil, isLoading: Bool = false) {
+        self.data = data
+        self.errorMessage = errorMessage
+        self.isLoading = isLoading
+    }
     
     func getTimeSheetData() {
         
@@ -41,7 +48,8 @@ class TimesheetViewModel: ObservableObject {
         
         components?.queryItems = [
             URLQueryItem(name: "empID", value: empIDStr),
-            URLQueryItem(name: "clientID", value: clientIDStr)
+            URLQueryItem(name: "clientID", value: clientIDStr),
+            URLQueryItem(name: "month", value: selectedDate)
         ]
         
         guard let finalURL = components?.url else {

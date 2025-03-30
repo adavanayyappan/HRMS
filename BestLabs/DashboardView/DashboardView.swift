@@ -10,6 +10,7 @@ import SwiftUI
 struct DashboardView: View {
     @StateObject private var viewModel = DashboardViewModel()
     @State private var showModal = false
+    
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical) {
@@ -23,7 +24,7 @@ struct DashboardView: View {
                     DashboardAttendanceView(timestatus: viewModel.data, showModal: $showModal)
                         .padding(
                             EdgeInsets(
-                                top: 60,
+                                top: 120,
                                 leading: 10,
                                 bottom: 0,
                                 trailing: 10
@@ -36,7 +37,6 @@ struct DashboardView: View {
             .clipped()
             .edgesIgnoringSafeArea(.all)
             .sheet(isPresented: $showModal) {
-                
                 let imagePath: String = AppStorageManager.value(forKey: AppStorageKeys.KEY_EMP_IMAGE, defaultValue: "")
                 if !imagePath.isEmpty {
                     IdentifyCameraViewControllerRepresentable()
@@ -46,7 +46,7 @@ struct DashboardView: View {
             }
         }
         .onAppear {
-            viewModel.getTimeSheetStatus()
+//            viewModel.getTimeSheetStatus()
         }
     }
 }

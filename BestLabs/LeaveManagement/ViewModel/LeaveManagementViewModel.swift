@@ -22,6 +22,14 @@ class LeaveManagementViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
+    init(leaveBalanceData: [LeaveBalance], leaveRequestData: [LeaveRequestListResponse.Leave], leaveApprovalData: [LeaveRequestListResponse.Leave], errorMessage: String? = nil, isLoading: Bool = false) {
+        self.leaveBalanceData = leaveBalanceData
+        self.leaveRequestData = leaveRequestData
+        self.leaveApprovalData = leaveApprovalData
+        self.errorMessage = errorMessage
+        self.isLoading = isLoading
+    }
+    
     func getLeaveTypeData() {
 
         let token: String = AppStorageManager.value(forKey: AppStorageKeys.KEY_TOKEN, defaultValue: "")

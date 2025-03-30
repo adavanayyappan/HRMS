@@ -1,6 +1,0 @@
-framework module Pods_BestLabs {
-  umbrella header "Pods-BestLabs-umbrella.h"
-
-  export *
-  module * { export * }
-}

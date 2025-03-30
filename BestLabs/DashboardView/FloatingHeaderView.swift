@@ -14,11 +14,11 @@ struct FloatingHeaderView: View {
     
     var body: some View {
         VStack() {
-            AsyncImages(url: URL(string: "\(Constants.imageURL.rawValue)\(imagePath)")!) {
-                        ProgressView()
-                }
+////            AsyncImages(url: URL(string: "\(Constants.imageURL.rawValue)\(imagePath)")!) {
+//                        ProgressView()
+//                }
         }
-        .frame(width: 120, height: 170)
+        .frame(width: 150, height: 150)
         .background(
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color.white)
@@ -26,7 +26,7 @@ struct FloatingHeaderView: View {
         )
         .padding(
             EdgeInsets(
-                top:200,
+                top: 250,
                 leading: 20,
                 bottom: 0,
                 trailing: 10

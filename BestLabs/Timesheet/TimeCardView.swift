@@ -15,7 +15,7 @@ struct TimeCardView: View {
     
     init(item: TimeEntry) {
         self.item = item
-        guard let date = Dater.shared.date(from: item.dateFormat, format: "dd-MM-yyyy") else {
+        guard let date = Dater.shared.date(from: "01-10-2023", format: "dd-MM-yyyy") else {
             return
         }
         self.convertedDate = Dater.shared.string(from: date, format: "dd") ?? ""
@@ -29,35 +29,35 @@ struct TimeCardView: View {
                 .multilineTextAlignment(.center)
                 .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
                 .frame(maxWidth: .infinity, alignment: .center)
-                .foregroundColor(.black)
+                .foregroundColor(Color.timeTextColor)
                 
                 Text(convertedYear)
                 .multilineTextAlignment(.center)
-                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 10))
                 .frame(maxWidth: .infinity, alignment: .center)
-                .foregroundColor(.black)
+                .foregroundColor(Color.timeTextColor)
             }
             Text(item.startTime)
-            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 14))
             .frame(maxWidth: .infinity, alignment: .center)
-            .foregroundColor(.gray)
+            .foregroundColor(Color.timeTextColor)
             
             Text(item.endTime ?? "")
-            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 14))
             .frame(maxWidth: .infinity, alignment: .center)
-            .foregroundColor(.gray)
+            .foregroundColor(Color.timeTextColor)
             
             VStack{
                 Text(item.totalHours ?? "")
-                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
+                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 20))
                 .frame(maxWidth: .infinity, alignment: .center)
-                .foregroundColor(.black)
+                .foregroundColor(Color.timeTextColor)
                 
                 Text("Working Hours")
                 .multilineTextAlignment(.center)
-                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 10))
                 .frame(maxWidth: .infinity, alignment: .center)
-                .foregroundColor(.black)
+                .foregroundColor(Color.timeTextColor)
             }
         }
         .frame(maxWidth: .infinity, alignment: .center)

@@ -13,12 +13,6 @@
 
 import SwiftUI
 
-struct LeaveManagementView_Previews: PreviewProvider {
-    static var previews: some View {
-        LeaveManagementView()
-    }
-}
-
 struct LeaveManagementView: View {
     @EnvironmentObject var viewModel: LeaveManagementViewModel
     @State private var leaveItem: LeaveBalance? = nil
@@ -58,7 +52,7 @@ struct LeaveManagementView: View {
                             .onTapGesture {
                                 leaveItem = nil
                                 showModal = true
-                            }
+                        }
                     }
                     List {
                         ForEach(viewModel.leaveRequestData) { item in
@@ -76,8 +70,8 @@ struct LeaveManagementView: View {
             LeaveSubmitView(selectedLeaveItem: $leaveItem)
         }
         .onAppear {
-            viewModel.getLeaveTypeData()
-            viewModel.getLeaveRequestData()
+//            viewModel.getLeaveTypeData()
+//            viewModel.getLeaveRequestData()
         }
     }
 }

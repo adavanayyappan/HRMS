@@ -89,7 +89,11 @@
 		04D246DD2CDE2D5D008736D1 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D246DC2CDE2D5D008736D1 /* ChangePasswordView.swift */; };
 		04D246DF2CDE2E37008736D1 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D246DE2CDE2E37008736D1 /* ChangePasswordViewModel.swift */; };
 		04D246E12CDE2E59008736D1 /* ChangePasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D246E02CDE2E59008736D1 /* ChangePasswordModel.swift */; };
-		356A32B02BC8114F06FF440B /* Pods_BestLabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3A2424081B936FDFE656B29 /* Pods_BestLabs.framework */; };
+		D79184992D8536EA00ADA912 /* ForgotPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79184982D8536EA00ADA912 /* ForgotPasswordModel.swift */; };
+		D791849B2D8536FD00ADA912 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791849A2D8536F200ADA912 /* ForgotPasswordViewModel.swift */; };
+		D791849D2D85395F00ADA912 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791849C2D85395F00ADA912 /* ForgotPasswordView.swift */; };
+		D791849F2D853A6A00ADA912 /* ResetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791849E2D853A6A00ADA912 /* ResetPasswordView.swift */; };
+		D79184A12D8557C100ADA912 /* lexenddeca.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D79184A02D8557C100ADA912 /* lexenddeca.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -177,9 +181,12 @@
 		04D246DC2CDE2D5D008736D1 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		04D246DE2CDE2E37008736D1 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		04D246E02CDE2E59008736D1 /* ChangePasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModel.swift; sourceTree = "<group>"; };
-		2FDA635795CED8987C67832F /* Pods-BestLabs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestLabs.debug.xcconfig"; path = "Target Support Files/Pods-BestLabs/Pods-BestLabs.debug.xcconfig"; sourceTree = "<group>"; };
-		A8D6BB5A8FE3EBB6F7F5AE02 /* Pods-BestLabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestLabs.release.xcconfig"; path = "Target Support Files/Pods-BestLabs/Pods-BestLabs.release.xcconfig"; sourceTree = "<group>"; };
 		B3A2424081B936FDFE656B29 /* Pods_BestLabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BestLabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D79184982D8536EA00ADA912 /* ForgotPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModel.swift; sourceTree = "<group>"; };
+		D791849A2D8536F200ADA912 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		D791849C2D85395F00ADA912 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
+		D791849E2D853A6A00ADA912 /* ResetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordView.swift; sourceTree = "<group>"; };
+		D79184A02D8557C100ADA912 /* lexenddeca.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = lexenddeca.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,7 +195,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B1FDD42C513B1C0007A9EF /* CoreLocation.framework in Frameworks */,
-				356A32B02BC8114F06FF440B /* Pods_BestLabs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,7 +215,6 @@
 				0013EC0F2B8DEE230005D315 /* Theme.swift */,
 				0013EB862B8DD7000005D315 /* BestLabs */,
 				0013EB852B8DD7000005D315 /* Products */,
-				30819F82AF2BFE1E66FDF65D /* Pods */,
 				9A92D736C0CB9951F07B5C03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 		0013EB862B8DD7000005D315 /* BestLabs */ = {
 			isa = PBXGroup;
 			children = (
+				D79184932D84C3E100ADA912 /* ForgotPassword */,
 				048A152F2C47010000F2E09F /* MobileFaceNet.tflite */,
 				04D340D22C45A49C00CA6F4A /* FaceRecgonize */,
 				04818E162C31486500B4442C /* DashboardView */,
@@ -239,6 +245,7 @@
 				0013EB872B8DD7000005D315 /* BestLabsApp.swift */,
 				0013EBEF2B8DE01B0005D315 /* SplashScreenView.swift */,
 				0013EB892B8DD7000005D315 /* ContentView.swift */,
+				D79184A02D8557C100ADA912 /* lexenddeca.ttf */,
 				044341132C25B06E00A1E972 /* brownbold.ttf */,
 				0013EB8B2B8DD7020005D315 /* Assets.xcassets */,
 				0013EB8D2B8DD7020005D315 /* Preview Content */,
@@ -446,15 +453,6 @@
 			path = FaceRecgonize;
 			sourceTree = "<group>";
 		};
-		30819F82AF2BFE1E66FDF65D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2FDA635795CED8987C67832F /* Pods-BestLabs.debug.xcconfig */,
-				A8D6BB5A8FE3EBB6F7F5AE02 /* Pods-BestLabs.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		9A92D736C0CB9951F07B5C03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +460,17 @@
 				B3A2424081B936FDFE656B29 /* Pods_BestLabs.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D79184932D84C3E100ADA912 /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				D791849A2D8536F200ADA912 /* ForgotPasswordViewModel.swift */,
+				D79184982D8536EA00ADA912 /* ForgotPasswordModel.swift */,
+				D791849C2D85395F00ADA912 /* ForgotPasswordView.swift */,
+				D791849E2D853A6A00ADA912 /* ResetPasswordView.swift */,
+			);
+			path = ForgotPassword;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -528,6 +537,7 @@
 				044341142C25B06E00A1E972 /* brownbold.ttf in Resources */,
 				045DBF612CA8231D00DA0C71 /* PrivacyInfo.xcprivacy in Resources */,
 				0013EB8C2B8DD7020005D315 /* Assets.xcassets in Resources */,
+				D79184A12D8557C100ADA912 /* lexenddeca.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,24 +546,23 @@
 /* Begin PBXShellScriptBuildPhase section */
 		09EFB0E7C492FEF98EA5EF1C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BestLabs-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -569,6 +578,7 @@
 				0013EC142B8DEE230005D315 /* LeavecardView.swift in Sources */,
 				04818E1A2C31516D00B4442C /* DashboardAttendanceView.swift in Sources */,
 				04818E152C30280300B4442C /* Dater.swift in Sources */,
+				D791849B2D8536FD00ADA912 /* ForgotPasswordViewModel.swift in Sources */,
 				04D246DB2CD4F5FC008736D1 /* TextFieldAlertModifier.swift in Sources */,
 				00AA73AA2B93145500BA2F68 /* LeaveapplyView.swift in Sources */,
 				04D246B82CB803EB008736D1 /* LeaveListView.swift in Sources */,
@@ -584,6 +594,7 @@
 				0434AB2F2C46F34200248613 /* MobileFaceNet.swift in Sources */,
 				048022A62C53DEF200EDB536 /* IdentifyCameraViewControllerRepresentable.swift in Sources */,
 				048A15312C48EB8A00F2E09F /* IdentifyCameraViewController.swift in Sources */,
+				D791849D2D85395F00ADA912 /* ForgotPasswordView.swift in Sources */,
 				04D246D72CD4D5FC008736D1 /* ClaimApplyResponse.swift in Sources */,
 				04D246CA2CCA6462008736D1 /* ClaimResponse.swift in Sources */,
 				048022A42C5292A400EDB536 /* BaseStringConverter.swift in Sources */,
@@ -621,12 +632,14 @@
 				048022A82C53DF3D00EDB536 /* AddCameraViewControllerRepresantable.swift in Sources */,
 				040E81AD2CA1B0C400A224DB /* LeaveSubmitViewModel.swift in Sources */,
 				045302532C2DEF6300FFE849 /* Image+Extensions.swift in Sources */,
+				D79184992D8536EA00ADA912 /* ForgotPasswordModel.swift in Sources */,
 				048022AB2C54E3FD00EDB536 /* LeaveSubmitView.swift in Sources */,
 				00D8CA742B9EC41A00387A8A /* DashboardView.swift in Sources */,
 				040E81AA2CA1AEA000A224DB /* LeaveBalanceResponse.swift in Sources */,
 				0013EBFE2B8DEC890005D315 /* LoginViewModel.swift in Sources */,
 				0013EC072B8DEE110005D315 /* ClaimManagementView.swift in Sources */,
 				04D246C42CC9409B008736D1 /* ClaimApprovalView.swift in Sources */,
+				D791849F2D853A6A00ADA912 /* ResetPasswordView.swift in Sources */,
 				04D246D32CD4D5C1008736D1 /* ClaimSubmitView.swift in Sources */,
 				045302582C2DF6EB00FFE849 /* NetworkManager.swift in Sources */,
 				04D246C82CCA640C008736D1 /* ClaimTypeResponse.swift in Sources */,
@@ -766,7 +779,6 @@
 		};
 		0013EB932B8DD7020005D315 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FDA635795CED8987C67832F /* Pods-BestLabs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -778,18 +790,22 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestLabs/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "I need access to the camera in order render live feed";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to provide better services even when the app is in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide better services.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.techsusha.BestLabs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bestlabs.facerecoginination;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -803,7 +819,6 @@
 		};
 		0013EB942B8DD7020005D315 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A8D6BB5A8FE3EBB6F7F5AE02 /* Pods-BestLabs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -815,18 +830,22 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestLabs/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "I need access to the camera in order render live feed";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to provide better services even when the app is in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide better services.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.techsusha.BestLabs;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bestlabs.facerecoginination;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

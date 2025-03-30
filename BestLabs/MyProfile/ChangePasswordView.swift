@@ -12,95 +12,94 @@ struct ChangePasswordView: View {
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
-        GeometryReader { geometry in
             NavigationView {
-                VStack {
-                    Image.splashscreen
-                        .resizable()
-                        .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .top)
-                        .frame(maxHeight: 250)
-                        .clipped()
-                    
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("Change Password")
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
-                        
-                        SecureField("Password", text: $viewModel.password)
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                        
-                        Divider()
-                            .frame(height: 1)
-                            .padding(.horizontal, 10)
-                            .background(Color.gray)
-                        
-                        if let passwordError = viewModel.passwordError {
-                            Text(passwordError)
-                                .foregroundColor(.red)
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                        }
-                      
-                        
-                        SecureField("Confirm Password", text: $viewModel.confirmPassword)
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                        
-                        Divider()
-                            .frame(height: 1)
-                            .padding(.horizontal, 10)
-                            .background(Color.gray)
-                        
-                        if let passwordError = viewModel.confirmPasswordError {
-                            Text(passwordError)
-                                .foregroundColor(.red)
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                        }
-                    
-                        Button(action: {
-                            viewModel.postLoginData()
-                        }) {
-                            Text("Confirm")
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .frame(maxWidth: .infinity)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(viewModel.isFormValid ? Color.primaryColor : Color.gray)
-                                .cornerRadius(40)
-                        }
-                        .disabled(!viewModel.isFormValid)
-                        
-                        if viewModel.passwordSuccess {
-                            Text("Password changed successfully")
-                                .foregroundColor(.green)
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
-                        }
-                        
-                        if let passwordError = viewModel.errorMessage {
-                            Text(passwordError)
-                                .foregroundColor(.red)
-                                .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                                .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                ScrollView {
+                    VStack {
+                        ZStack(alignment: .top) {
+                            Image.dashboardBg
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .frame(height: 200)
+                                .clipped()
+
+                            VStack {
+                                Spacer().frame(height: 80)
+
+                                VStack(alignment: .leading) {
+                                    Text("Change Password")
+                                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
+                                        .foregroundColor(.textColor)
+                                        .padding(.bottom, 1)
+                                   
+                                    SecureField("Password", text: $viewModel.password)
+                                        .padding(.top, 30)
+                                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                        .foregroundColor(.gray)
+                                    
+                                    Divider()
+                                        .frame(height: 1)
+                                        .padding(.horizontal, 10)
+                                        .background(Color.gray)
+                                    
+                                    if let passwordError = viewModel.passwordError {
+                                        Text(passwordError)
+                                            .foregroundColor(.red)
+                                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                                    }
+                                    
+                                    SecureField("Confirm Password", text: $viewModel.password)
+                                        .padding(.top, 30)
+                                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                        .foregroundColor(.gray)
+                                    
+                                    Divider()
+                                        .frame(height: 1)
+                                        .padding(.horizontal, 10)
+                                        .background(Color.gray)
+                                    
+                                    if let passwordError = viewModel.confirmPasswordError {
+                                        Text(passwordError)
+                                            .foregroundColor(.red)
+                                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                                    }
+                                    
+                                
+                                    Button(action: {
+                                        viewModel.postLoginData()
+                                    }) {
+                                        Text("Change Password")
+                                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
+                                            .frame(maxWidth: .infinity)
+                                            .padding()
+                                            .foregroundColor(.white)
+                                            .background(Color.buttonBackgroundColor)
+                                    }
+                                    .cornerRadius(8)
+                                    .padding(.top, 30)
+                                }
+                                .padding(30)
+                            }
+                            .background(Color.white)
+                            .cornerRadius(30)
+                            .padding(.top, 180)
+                            .padding(.bottom, -30)
                         }
                     }
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: .top)
-                    .frame(maxHeight: .infinity, alignment: .top)
-                    .padding(
-                        EdgeInsets(
-                            top: 50,
-                            leading: 20,
-                            bottom: 10,
-                            trailing: 20
-                        )
-                    )
                     
                     if viewModel.isLoading {
                         LoadingView()
                             .frame(width: 150, height: 150)
                     }
+                    
+                    if viewModel.passwordSuccess {
+                        Text("Password changed successfully")
+                            .foregroundColor(.green)
+                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                            .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
+                    }
                 }
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .clipped()
                 .edgesIgnoringSafeArea(.all)
             }
             .navigationBarBackButtonHidden(true) // Hide the default back button
@@ -111,7 +110,6 @@ struct ChangePasswordView: View {
                 Image(systemName: "chevron.left") // System back arrow
                     .foregroundColor(.white) // Custom color
             })
-        }
     }
 }
 

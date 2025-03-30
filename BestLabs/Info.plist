@@ -10,18 +10,6 @@
 &lt;/array&gt;
 &lt;/plist&gt;</key>
 	<string></string>
-	<key>NSCameraUsageDescription</key>
-	<string>I need access to the camera in order render live feed</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to provide better services.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need your location to provide better services even when the app is in the background.</string>
-    <key>NSPhotoLibraryUsageDescription</key>
-    <string>We need access to your photo library to select images.</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>brownbold.ttf</string>
-	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -39,5 +27,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>brownbold.ttf</string>
+		<string>lexenddeca.ttf</string>
+	</array>
 </dict>
 </plist>

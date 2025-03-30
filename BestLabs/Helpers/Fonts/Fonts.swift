@@ -10,6 +10,7 @@ import SwiftUI
 struct Fonts {
     struct CustomFont {
         static let brownBold = "brownbold"
+        static let lexenddeca = "lexenddeca"
     }
 
     // Example for adding sizes
