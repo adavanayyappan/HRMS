@@ -32,5 +32,13 @@
 		<string>brownbold.ttf</string>
 		<string>lexenddeca.ttf</string>
 	</array>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.2</string>
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to confirm that you are checking in or out from your designated office location during work hours.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need location access even when the app is in the background to provide location-based alerts.</string>
 </dict>
 </plist>

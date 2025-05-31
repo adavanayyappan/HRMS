@@ -12,6 +12,7 @@ struct ClaimManagementView: View {
     @EnvironmentObject var viewModel: ClaimManagementViewModel
     @State private var claimItem: ClaimType? = nil
     @State private var showModal: Bool = false
+    @State private var needsRefresh = false
 
     var body: some View {
         VStack {
@@ -62,11 +63,18 @@ struct ClaimManagementView: View {
             }
         }
         .sheet(isPresented: $showModal) {
-            ClaimSubmitView(selectedClaimItem: $claimItem)
+            ClaimSubmitView(didUpdate: $needsRefresh, selectedClaimItem: $claimItem)
         }
         .onAppear {
-//            viewModel.getClaimTypeData()
-//            viewModel.getClaimRequestData()
+            viewModel.getClaimTypeData()
+            viewModel.getClaimRequestData()
+        }
+        .onChange(of: needsRefresh) { newValue in
+            if newValue {
+                viewModel.getClaimTypeData()
+                viewModel.getClaimRequestData()
+                needsRefresh = false // reset
+            }
         }
     }
 }

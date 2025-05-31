@@ -17,6 +17,7 @@ struct LeaveManagementView: View {
     @EnvironmentObject var viewModel: LeaveManagementViewModel
     @State private var leaveItem: LeaveBalance? = nil
     @State private var showModal: Bool = false
+    @State private var needsRefresh = false
 
     var body: some View {
         VStack {
@@ -67,11 +68,18 @@ struct LeaveManagementView: View {
             }
         }
         .sheet(isPresented: $showModal) {
-            LeaveSubmitView(selectedLeaveItem: $leaveItem)
+            LeaveSubmitView(didUpdate: $needsRefresh, selectedLeaveItem: $leaveItem)
         }
         .onAppear {
-//            viewModel.getLeaveTypeData()
-//            viewModel.getLeaveRequestData()
+            viewModel.getLeaveTypeData()
+            viewModel.getLeaveRequestData()
+        }
+        .onChange(of: needsRefresh) { newValue in
+            if newValue {
+                viewModel.getLeaveTypeData()
+                viewModel.getLeaveRequestData()
+                needsRefresh = false // reset
+            }
         }
     }
 }

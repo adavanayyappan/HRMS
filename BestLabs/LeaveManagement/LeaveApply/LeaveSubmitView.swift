@@ -11,6 +11,7 @@ import PhotosUI
 struct LeaveSubmitView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: LeaveManagementViewModel
+    @Binding var didUpdate: Bool
     
     @State private var startDate: Date = Date()
     @State private var endDate: Date = Date()
@@ -42,7 +43,7 @@ struct LeaveSubmitView: View {
                 )
                 
                 Text("Apply Leave")
-                    .foregroundColor(Color.primaryColor)
+                    .foregroundColor(Color.buttonBackgroundColor)
                     .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
                     .padding(
                         EdgeInsets(
@@ -87,7 +88,7 @@ struct LeaveSubmitView: View {
                                 
                                 Text("\(Date(), formatter: DateFormatter.dateMonthYear)")
                                     .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
-                                    .foregroundColor(Color.primaryColor)
+                                    .foregroundColor(Color.buttonBackgroundColor)
                                 
                                 Divider()
                                     .padding(.horizontal, 10)
@@ -103,7 +104,7 @@ struct LeaveSubmitView: View {
                                 HStack {
                                     Text("\(startDate, formatter: DateFormatter.dateMonthYear)")
                                         .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
-                                        .foregroundColor(Color.primaryColor)
+                                        .foregroundColor(Color.buttonBackgroundColor)
                                     Spacer()
                                     
                                     Image(systemName: "calendar")
@@ -139,7 +140,7 @@ struct LeaveSubmitView: View {
                                 HStack {
                                     Text("\(endDate, formatter: DateFormatter.dateMonthYear)")
                                         .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
-                                        .foregroundColor(Color.primaryColor)
+                                        .foregroundColor(Color.buttonBackgroundColor)
                   
                                     Spacer()
                                     
@@ -232,7 +233,7 @@ struct LeaveSubmitView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(maxWidth: .infinity)
-                                    .background(Color.primaryColor)
+                                    .background(Color.buttonBackgroundColor)
                                     .cornerRadius(8)
                             }
                             .padding(.horizontal, 10)
@@ -275,6 +276,7 @@ struct LeaveSubmitView: View {
             if applySuccess {
                 // Dismiss the view when shouldDismiss becomes true
                 presentationMode.wrappedValue.dismiss()
+                didUpdate = true
             }
         }
     }

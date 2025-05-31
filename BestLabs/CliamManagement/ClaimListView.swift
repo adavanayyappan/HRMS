@@ -35,7 +35,7 @@ struct ClaimListView: View {
                     .frame(width: 70, height: 20)
                     .background(
                         RoundedRectangle(cornerRadius: 0)
-                            .fill(Color.primaryColor)
+                            .fill(Color.buttonBackgroundColor)
                     )
                     .padding(.top, 1)
                     

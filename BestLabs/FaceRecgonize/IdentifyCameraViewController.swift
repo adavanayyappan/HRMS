@@ -27,7 +27,7 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-//    private let faceNet = MobileFaceNet()
+    private let faceNet = MobileFaceNet()
     public var THRESHOLD: Float = 0.8;
     
     private let locationManager = CLLocationManager()
@@ -176,17 +176,17 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
                                 return
                             }
 
-//                            if let similarity = self.faceNet?.compare(image1: serverImage, with: image) {
-//                                print("Similarity score: \(similarity)")
-//                                if similarity > self.THRESHOLD {
-//                                    self.postPunchData()
-//                                } else {
-//                                    self.captureSession.startRunning()
-//                                }
-//                            } else {
-//                                self.captureSession.startRunning()
-//                                print("Failed to compare images")
-//                            }
+                            if let similarity = self.faceNet?.compare(image1: serverImage, with: image) {
+                                print("Similarity score: \(similarity)")
+                                if similarity > self.THRESHOLD {
+                                    self.postPunchData()
+                                } else {
+                                    self.captureSession.startRunning()
+                                }
+                            } else {
+                                self.captureSession.startRunning()
+                                print("Failed to compare images")
+                            }
                         }
                     }
                 }

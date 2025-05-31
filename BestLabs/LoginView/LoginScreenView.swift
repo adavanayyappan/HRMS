@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginScreenView: View {
     @StateObject private var viewModel = LoginViewModel()
     @State var forgotPassword: Bool = false
+    @State var isLoggedIn = false
     
     var body: some View {
             NavigationView {
@@ -70,8 +71,7 @@ struct LoginScreenView: View {
                                     }
                                     
                                     Button(action: {
-                                        viewModel.loginSuccess.toggle()
-//                                        viewModel.postLoginData()
+                                        viewModel.postLoginData()
                                     }) {
                                         Text("Login")
                                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
@@ -115,7 +115,7 @@ struct LoginScreenView: View {
                             .frame(width: 150, height: 150)
                     }
                     
-                    NavigationLink(destination: MainTabbedView(), isActive: $viewModel.loginSuccess) {
+                    NavigationLink(destination: MainTabbedView(loginViewModel: viewModel), isActive: $viewModel.loginSuccess) {
                         EmptyView()
                     }
                     

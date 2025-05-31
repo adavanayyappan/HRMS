@@ -22,6 +22,8 @@ class ClaimManagementViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
+    init() {}
+    
     init(claimTypeData: [ClaimType], claimRequestData: [ClaimResponse.Claim], claimApprovalData: [ClaimResponse.Claim], errorMessage: String? = nil, isLoading: Bool = false, cancellables: Set<AnyCancellable> = Set<AnyCancellable>()) {
         self.claimTypeData = claimTypeData
         self.claimRequestData = claimRequestData

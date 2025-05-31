@@ -22,6 +22,8 @@ class LeaveManagementViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
+    init() {}
+    
     init(leaveBalanceData: [LeaveBalance], leaveRequestData: [LeaveRequestListResponse.Leave], leaveApprovalData: [LeaveRequestListResponse.Leave], errorMessage: String? = nil, isLoading: Bool = false) {
         self.leaveBalanceData = leaveBalanceData
         self.leaveRequestData = leaveRequestData

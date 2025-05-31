@@ -10,6 +10,7 @@ import SwiftUI
 struct ClaimSubmitView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: ClaimManagementViewModel
+    @Binding var didUpdate: Bool
     
     @State private var claimAmount: String = ""
     @State private var description: String = ""
@@ -38,7 +39,7 @@ struct ClaimSubmitView: View {
                 )
                 
                 Text("Apply Claim")
-                    .foregroundColor(Color.primaryColor)
+                    .foregroundColor(Color.buttonBackgroundColor)
                     .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
                     .padding(
                         EdgeInsets(
@@ -83,7 +84,7 @@ struct ClaimSubmitView: View {
                                 
                                 Text("\(Date(), formatter: DateFormatter.dateMonthYear)")
                                     .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
-                                    .foregroundColor(Color.primaryColor)
+                                    .foregroundColor(Color.buttonBackgroundColor)
                                 
                                 Divider()
                                     .padding(.horizontal, 10)
@@ -168,7 +169,7 @@ struct ClaimSubmitView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(maxWidth: .infinity)
-                                    .background(Color.primaryColor)
+                                    .background(Color.buttonBackgroundColor)
                                     .cornerRadius(8)
                             }
                             .padding(.horizontal, 10)
@@ -211,6 +212,7 @@ struct ClaimSubmitView: View {
             if applySuccess {
                 // Dismiss the view when shouldDismiss becomes true
                 presentationMode.wrappedValue.dismiss()
+                didUpdate = true
             }
         }
     }

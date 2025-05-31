@@ -10,12 +10,38 @@ import SwiftUI
 struct SplashScreenView: View {
     
     @State var isActive: Bool = false
+    @StateObject private var locationManager = LocationManager()
     
     var body: some View {
         GeometryReader { geometry in
             ZStack {
                 if isActive {
-                    LoginScreenView()
+                    if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+                            LoginScreenView()
+                        } else if locationManager.authorizationStatus == .denied {
+                            ZStack {
+                                
+                                Image.splashscreen
+                                    .resizable()
+                                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+                                    .clipped()
+                                    .edgesIgnoringSafeArea(.all)
+                                
+                                Text("Location access denied. Please grant permssion in settings to continue")
+                                    .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
+                                    .foregroundColor(.white)
+                                    .padding(.top, 240)
+                                    .padding(.leading, 10)
+                                    .padding(.trailing, 10)
+                            }
+                        } else {
+                            Image.splashscreen
+                                .resizable()
+                                .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, maxHeight: .infinity)
+                                .clipped()
+                                .edgesIgnoringSafeArea(.all)
+                        }
+                    
                 } else {
                     Image.splashscreen
                         .resizable()

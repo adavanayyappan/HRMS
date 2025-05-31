@@ -17,6 +17,8 @@ class TimesheetViewModel: ObservableObject {
     
     private var cancellables = Set<AnyCancellable>()
     
+    init() {}
+    
     init(data: [TimeEntry], errorMessage: String? = nil, isLoading: Bool = false) {
         self.data = data
         self.errorMessage = errorMessage

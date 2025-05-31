@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -28,7 +28,6 @@
 		00AA73AA2B93145500BA2F68 /* LeaveapplyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AA73A92B93145500BA2F68 /* LeaveapplyView.swift */; };
 		00D490532B91A31800386EC9 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D490522B91A31800386EC9 /* CircleButton.swift */; };
 		00D8CA742B9EC41A00387A8A /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D8CA732B9EC41A00387A8A /* DashboardView.swift */; };
-		00D8CA762B9EC47900387A8A /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D8CA752B9EC47900387A8A /* Timer.swift */; };
 		00D8CA782B9EC4A500387A8A /* HeadBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D8CA772B9EC4A500387A8A /* HeadBanner.swift */; };
 		040E81A62CA1AD8600A224DB /* LeaveManagementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E81A52CA1AD8600A224DB /* LeaveManagementViewModel.swift */; };
 		040E81A82CA1ADC200A224DB /* LeaveTypeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040E81A72CA1ADC200A224DB /* LeaveTypeResponse.swift */; };
@@ -89,6 +88,10 @@
 		04D246DD2CDE2D5D008736D1 /* ChangePasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D246DC2CDE2D5D008736D1 /* ChangePasswordView.swift */; };
 		04D246DF2CDE2E37008736D1 /* ChangePasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D246DE2CDE2E37008736D1 /* ChangePasswordViewModel.swift */; };
 		04D246E12CDE2E59008736D1 /* ChangePasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D246E02CDE2E59008736D1 /* ChangePasswordModel.swift */; };
+		398E4DD4A8D41639088BA919 /* Pods_BestLabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96048B22A4C7E55F9CB587C /* Pods_BestLabs.framework */; };
+		8944C6052DB3CED600F5252F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944C6042DB3CED600F5252F /* LocationManager.swift */; };
+		8944C6072DB3DB5200F5252F /* ImageViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944C6062DB3DB5200F5252F /* ImageViewerView.swift */; };
+		89D235F22DEA0F9E0026F782 /* BestLabsLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 89D235F12DEA0F9E0026F782 /* BestLabsLibrary */; };
 		D79184992D8536EA00ADA912 /* ForgotPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79184982D8536EA00ADA912 /* ForgotPasswordModel.swift */; };
 		D791849B2D8536FD00ADA912 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791849A2D8536F200ADA912 /* ForgotPasswordViewModel.swift */; };
 		D791849D2D85395F00ADA912 /* ForgotPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791849C2D85395F00ADA912 /* ForgotPasswordView.swift */; };
@@ -120,7 +123,6 @@
 		00AA73A92B93145500BA2F68 /* LeaveapplyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveapplyView.swift; sourceTree = "<group>"; };
 		00D490522B91A31800386EC9 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
 		00D8CA732B9EC41A00387A8A /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
-		00D8CA752B9EC47900387A8A /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		00D8CA772B9EC4A500387A8A /* HeadBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadBanner.swift; sourceTree = "<group>"; };
 		040E81A52CA1AD8600A224DB /* LeaveManagementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveManagementViewModel.swift; sourceTree = "<group>"; };
 		040E81A72CA1ADC200A224DB /* LeaveTypeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaveTypeResponse.swift; sourceTree = "<group>"; };
@@ -181,7 +183,11 @@
 		04D246DC2CDE2D5D008736D1 /* ChangePasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordView.swift; sourceTree = "<group>"; };
 		04D246DE2CDE2E37008736D1 /* ChangePasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewModel.swift; sourceTree = "<group>"; };
 		04D246E02CDE2E59008736D1 /* ChangePasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordModel.swift; sourceTree = "<group>"; };
-		B3A2424081B936FDFE656B29 /* Pods_BestLabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BestLabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		14793DE39D6BCE3EA0A81A22 /* Pods-BestLabs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestLabs.release.xcconfig"; path = "Target Support Files/Pods-BestLabs/Pods-BestLabs.release.xcconfig"; sourceTree = "<group>"; };
+		5DDD516E97E78A919540F0F4 /* Pods-BestLabs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestLabs.debug.xcconfig"; path = "Target Support Files/Pods-BestLabs/Pods-BestLabs.debug.xcconfig"; sourceTree = "<group>"; };
+		8944C6042DB3CED600F5252F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		8944C6062DB3DB5200F5252F /* ImageViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerView.swift; sourceTree = "<group>"; };
+		C96048B22A4C7E55F9CB587C /* Pods_BestLabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BestLabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D79184982D8536EA00ADA912 /* ForgotPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModel.swift; sourceTree = "<group>"; };
 		D791849A2D8536F200ADA912 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
 		D791849C2D85395F00ADA912 /* ForgotPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordView.swift; sourceTree = "<group>"; };
@@ -194,7 +200,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89D235F22DEA0F9E0026F782 /* BestLabsLibrary in Frameworks */,
 				04B1FDD42C513B1C0007A9EF /* CoreLocation.framework in Frameworks */,
+				398E4DD4A8D41639088BA919 /* Pods_BestLabs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,7 +212,6 @@
 		0013EB7B2B8DD7000005D315 = {
 			isa = PBXGroup;
 			children = (
-				00D8CA752B9EC47900387A8A /* Timer.swift */,
 				0087E3AB2B9366B5002E0D17 /* DropdownPickerView.swift */,
 				00AA73A92B93145500BA2F68 /* LeaveapplyView.swift */,
 				00D490522B91A31800386EC9 /* CircleButton.swift */,
@@ -216,6 +223,7 @@
 				0013EB862B8DD7000005D315 /* BestLabs */,
 				0013EB852B8DD7000005D315 /* Products */,
 				9A92D736C0CB9951F07B5C03 /* Frameworks */,
+				B0AB6A393B492E7DFD4EC3A2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -344,6 +352,8 @@
 				04B1FDD12C512FA70007A9EF /* ImageLoader.swift */,
 				048022A32C5292A400EDB536 /* BaseStringConverter.swift */,
 				04D246CD2CCA981D008736D1 /* ImagePicker.swift */,
+				8944C6042DB3CED600F5252F /* LocationManager.swift */,
+				8944C6062DB3DB5200F5252F /* ImageViewerView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -457,9 +467,18 @@
 			isa = PBXGroup;
 			children = (
 				04B1FDD32C513B1B0007A9EF /* CoreLocation.framework */,
-				B3A2424081B936FDFE656B29 /* Pods_BestLabs.framework */,
+				C96048B22A4C7E55F9CB587C /* Pods_BestLabs.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0AB6A393B492E7DFD4EC3A2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5DDD516E97E78A919540F0F4 /* Pods-BestLabs.debug.xcconfig */,
+				14793DE39D6BCE3EA0A81A22 /* Pods-BestLabs.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		D79184932D84C3E100ADA912 /* ForgotPassword */ = {
@@ -480,10 +499,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0013EB922B8DD7020005D315 /* Build configuration list for PBXNativeTarget "BestLabs" */;
 			buildPhases = (
-				09EFB0E7C492FEF98EA5EF1C /* [CP] Check Pods Manifest.lock */,
+				6163FC17C0B51B84B15D8723 /* [CP] Check Pods Manifest.lock */,
 				0013EB802B8DD7000005D315 /* Sources */,
 				0013EB812B8DD7000005D315 /* Frameworks */,
 				0013EB822B8DD7000005D315 /* Resources */,
+				9FAEFEB9AA0F0E04466AAB84 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -518,6 +538,9 @@
 				Base,
 			);
 			mainGroup = 0013EB7B2B8DD7000005D315;
+			packageReferences = (
+				89D235F02DEA0F9E0026F782 /* XCLocalSwiftPackageReference "BestLabsLibrary" */,
+			);
 			productRefGroup = 0013EB852B8DD7000005D315 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -544,25 +567,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		09EFB0E7C492FEF98EA5EF1C /* [CP] Check Pods Manifest.lock */ = {
+		6163FC17C0B51B84B15D8723 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BestLabs-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9FAEFEB9AA0F0E04466AAB84 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BestLabs/Pods-BestLabs-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BestLabs/Pods-BestLabs-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BestLabs/Pods-BestLabs-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -625,6 +666,7 @@
 				0013EC172B8DEE230005D315 /* Theme.swift in Sources */,
 				04D246C22CC9408C008736D1 /* ClaimTabView.swift in Sources */,
 				0453025A2C2DF93300FFE849 /* LoginScreenView.swift in Sources */,
+				8944C6052DB3CED600F5252F /* LocationManager.swift in Sources */,
 				04D246C02CC9407B008736D1 /* ClaimListView.swift in Sources */,
 				0013EBF02B8DE01B0005D315 /* SplashScreenView.swift in Sources */,
 				00D490532B91A31800386EC9 /* CircleButton.swift in Sources */,
@@ -647,9 +689,9 @@
 				04D246E12CDE2E59008736D1 /* ChangePasswordModel.swift in Sources */,
 				04D246D92CD4F4AA008736D1 /* BottomSheetView.swift in Sources */,
 				04B1FDCA2C4FEC630007A9EF /* FaceDetectionViewController.swift in Sources */,
+				8944C6072DB3DB5200F5252F /* ImageViewerView.swift in Sources */,
 				0013EC182B8DEE230005D315 /* ColorCard.swift in Sources */,
 				048A152E2C4700B900F2E09F /* ImageFetcher.swift in Sources */,
-				00D8CA762B9EC47900387A8A /* Timer.swift in Sources */,
 				048A152A2C46FE8A00F2E09F /* Tools.swift in Sources */,
 				04D246CC2CCA647F008736D1 /* ClaimManagementViewModel.swift in Sources */,
 			);
@@ -779,17 +821,23 @@
 		};
 		0013EB932B8DD7020005D315 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5DDD516E97E78A919540F0F4 /* Pods-BestLabs.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"BestLabs/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 787BF49PYA;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestLabs/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "BestLabs HRMS";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "I need access to the camera in order render live feed";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to provide better services even when the app is in the background.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide better services.";
@@ -797,20 +845,23 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bestlabs.facerecoginination;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bestlabs.hrms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.bestlabs.hrms_Adhoc;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -819,17 +870,23 @@
 		};
 		0013EB942B8DD7020005D315 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14793DE39D6BCE3EA0A81A22 /* Pods-BestLabs.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "\"BestLabs/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 787BF49PYA;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BestLabs/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "BestLabs HRMS";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "I need access to the camera in order render live feed";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to provide better services even when the app is in the background.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide better services.";
@@ -837,20 +894,23 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bestlabs.facerecoginination;
+				MARKETING_VERSION = 1.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bestlabs.hrms;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = com.bestlabs.hrms_Adhoc;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -879,6 +939,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		89D235F02DEA0F9E0026F782 /* XCLocalSwiftPackageReference "BestLabsLibrary" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = BestLabsLibrary;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		89D235F12DEA0F9E0026F782 /* BestLabsLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BestLabsLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0013EB7C2B8DD7000005D315 /* Project object */;
 }

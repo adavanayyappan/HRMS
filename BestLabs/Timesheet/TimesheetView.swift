@@ -98,7 +98,7 @@ struct TimesheetView: View {
             }
         }
         .onAppear {
-//            viewModel.getTimeSheetData()
+            viewModel.getTimeSheetData()
         }
     }
 }

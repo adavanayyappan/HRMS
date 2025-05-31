@@ -46,7 +46,7 @@ struct DashboardView: View {
             }
         }
         .onAppear {
-//            viewModel.getTimeSheetStatus()
+            viewModel.getTimeSheetStatus()
         }
     }
 }

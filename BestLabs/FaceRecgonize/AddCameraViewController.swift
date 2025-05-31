@@ -64,7 +64,7 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         captureButton.setTitle("Add Face", for: .normal)
         captureButton.addTarget(self, action: #selector(captureButtonTapped), for: .touchUpInside)
         captureButton.translatesAutoresizingMaskIntoConstraints = false
-//        captureButton.backgroundColor = .primarycolor
+        captureButton.backgroundColor = .primarycolor
         captureButton.tintColor = .white
         view.addSubview(captureButton)
         captureButton.isEnabled = false

@@ -15,6 +15,7 @@ struct MyProfileView: View {
     
     private var imagePath: String = AppStorageManager.value(forKey: AppStorageKeys.KEY_EMP_IMAGE, defaultValue: "")
     private var serverImageUrl = "\(Constants.imageURL)"
+    @EnvironmentObject var viewModel: LoginViewModel
     
     var body: some View {
         NavigationView {
@@ -34,7 +35,7 @@ struct MyProfileView: View {
                         .frame(width: 150, height: 150)
                         .background(
                             RoundedRectangle(cornerRadius: 5)
-                                .fill(Color.primaryColor)
+                                .fill(Color.white)
                                 .shadow(color: .gray, radius: 1, x: 0, y: 2)
                         )
                         
@@ -47,10 +48,10 @@ struct MyProfileView: View {
                 
                 // List items
                 List {
-                    NavigationLink(destination: EditProfileView()) {
-                        Text("My Profile")
-                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
-                    }
+//                    NavigationLink(destination: EditProfileView()) {
+//                        Text("My Profile")
+//                            .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+//                    }
                     
                     NavigationLink(destination: ChangePasswordView()) {
                         Text("Change Password")
@@ -58,7 +59,7 @@ struct MyProfileView: View {
                     }
                     
                     Button(action: {
-                        // Handle logout
+                        viewModel.loginSuccess = false
                     }) {
                         Text("Logout")
                             .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))

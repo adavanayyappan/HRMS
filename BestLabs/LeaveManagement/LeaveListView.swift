@@ -12,6 +12,8 @@ struct LeaveListView: View {
     var item: LeaveRequestListResponse.Leave
     var convertedDate : String = ""
     var convertedMonth : String = ""
+    @State private var showImageViewer = false
+    @State private var imageURL: URL?
     
     init(item: LeaveRequestListResponse.Leave) {
         self.item = item
@@ -35,7 +37,7 @@ struct LeaveListView: View {
                     .frame(width: 70, height: 20)
                     .background(
                         RoundedRectangle(cornerRadius: 0)
-                            .fill(Color.primaryColor)
+                            .fill(Color.buttonBackgroundColor)
                     )
                     .padding(.top, 1)
                     
@@ -72,23 +74,38 @@ struct LeaveListView: View {
                         .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 12))
                         .padding(.bottom, 5)
                     
-                    if item.leaveStatus == "Approved" {
-                        Text(item.leaveStatus ?? "")
-                            .foregroundColor(.green)
-                            .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 12))
-                            .padding(.bottom, 5)
-                    } else if item.leaveStatus == "Pending" {
-                        Text(item.leaveStatus ?? "")
-                            .foregroundColor(.yellow)
-                            .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 12))
-                            .padding(.bottom, 5)
-                    } else {
-                        Text(item.leaveStatus ?? "")
-                            .foregroundColor(.red)
-                            .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 12))
-                            .padding(.bottom, 5)
+                    HStack {
+                        if item.leaveStatus == "Approved" {
+                            Text(item.leaveStatus ?? "")
+                                .foregroundColor(.green)
+                                .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 12))
+                                .padding(.bottom, 5)
+                        } else if item.leaveStatus == "Pending" {
+                            Text(item.leaveStatus ?? "")
+                                .foregroundColor(.yellow)
+                                .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 12))
+                                .padding(.bottom, 5)
+                        } else {
+                            Text(item.leaveStatus ?? "")
+                                .foregroundColor(.red)
+                                .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 12))
+                                .padding(.bottom, 5)
+                        }
+                        Spacer()
+                        if let attachment = item.leaveAttachment, !attachment.isEmpty {
+                            Button(action: {
+                                imageURL = URL(string: attachment)
+                                showImageViewer = true
+                            }) {
+                                Image(systemName: "paperclip")
+                                    .font(.system(size: 20))
+                                    .foregroundColor(Color.buttonBackgroundColor)
+                                    .padding(.trailing, 10)
+                            }
+                        }
+                        
                     }
-                    
+                
                     if let remark = item.leaveRemarks {
                         Text("Remark: \(remark)")
                             .foregroundColor(.gray)
@@ -113,6 +130,11 @@ struct LeaveListView: View {
                 trailing: 10
             )
         )
+        .sheet(isPresented: $showImageViewer) {
+            if let url = imageURL {
+                ImageViewerView(imageURL: url, showImageViewer: $showImageViewer)
+            }
+        }
     }
 }
 

@@ -14,9 +14,9 @@ struct FloatingHeaderView: View {
     
     var body: some View {
         VStack() {
-////            AsyncImages(url: URL(string: "\(Constants.imageURL.rawValue)\(imagePath)")!) {
-//                        ProgressView()
-//                }
+            AsyncImages(url: URL(string: "\(Constants.imageURL.rawValue)\(imagePath)")!) {
+                        ProgressView()
+                }
         }
         .frame(width: 150, height: 150)
         .background(

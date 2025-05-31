@@ -22,12 +22,12 @@ struct LeaveBoxView: View {
             VStack(alignment: .center, spacing: 20) {
                 Text("\(item.balanceLeave)")
                     .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 22))
-                    .foregroundColor(selectedItem == item ? .white : .primarycolor)
+                    .foregroundColor(selectedItem == item ? .white : .buttonBackgroundColor)
                 
                 Text(item.label)
                     .multilineTextAlignment(.center)
                     .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 10))
-                    .foregroundColor(selectedItem == item ? .white : .primarycolor)
+                    .foregroundColor(selectedItem == item ? .white : .buttonBackgroundColor)
                     .padding(
                         EdgeInsets(
                             top: 0,
@@ -41,7 +41,7 @@ struct LeaveBoxView: View {
         .frame(width: 100, height: 100)
         .background(
                RoundedRectangle(cornerRadius: 5)
-                .fill(selectedItem == item ? .primarycolor : .white)
+                .fill(selectedItem == item ? Color.buttonBackgroundColor : .white)
                    .shadow(color: .gray, radius: 2, x: 0, y: 2)
        )
     }

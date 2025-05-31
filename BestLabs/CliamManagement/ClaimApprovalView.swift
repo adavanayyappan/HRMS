@@ -114,7 +114,7 @@ struct ClaimApprovalView: View {
             .animation(.easeInOut, value: showAlert)
         )
         .onAppear {
-//            viewModel.getClaimApprovalData()
+            viewModel.getClaimApprovalData()
         }
     }
 }

@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-BestLabs/Pods-BestLabs-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/TensorFlowLiteC/TensorFlowLiteC.bundle
+${PODS_CONFIGURATION_BUILD_DIR}/TensorFlowLiteSwift/TensorFlowLite.bundle

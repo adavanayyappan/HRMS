@@ -48,9 +48,10 @@ enum TabbedItems: Int, CaseIterable{
 struct MainTabbedView: View {
     
     @State var selectedTab = 0
-//    @StateObject private var timeviewModel = TimesheetViewModel()
-//    @StateObject private var leaveviewModel = LeaveManagementViewModel()
-//    @StateObject private var claimviewModel = ClaimManagementViewModel()
+    @StateObject private var timeviewModel = TimesheetViewModel()
+    @StateObject private var leaveviewModel = LeaveManagementViewModel()
+    @StateObject private var claimviewModel = ClaimManagementViewModel()
+    @ObservedObject var loginViewModel: LoginViewModel
     
     var body: some View {
         ZStack(alignment: .bottom){
@@ -60,18 +61,19 @@ struct MainTabbedView: View {
                 
                 TimesheetView()
                     .tag(1)
-//                    .environmentObject(timeviewModel)
+                    .environmentObject(timeviewModel)
                 
                 LeaveTabView()
                     .tag(2)
-//                    .environmentObject(leaveviewModel)
+                    .environmentObject(leaveviewModel)
 
                 ClaimTabView()
                     .tag(3)
-//                    .environmentObject(claimviewModel)
+                    .environmentObject(claimviewModel)
 
                 MyProfileView()
                     .tag(4)
+                    .environmentObject(loginViewModel)
             }
             
             HStack(spacing: 50){
@@ -106,7 +108,7 @@ extension MainTabbedView {
 
 struct MainTabbedView_Previews: PreviewProvider {
     static var previews: some View {
-        MainTabbedView()
+        MainTabbedView(loginViewModel: LoginViewModel())
     }
 }
 
