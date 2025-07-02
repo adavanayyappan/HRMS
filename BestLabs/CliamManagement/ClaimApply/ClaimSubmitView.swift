@@ -95,6 +95,7 @@ struct ClaimSubmitView: View {
                             VStack(alignment: .leading, spacing: 20) {
                                 TextField("Claim Amount", text: $submitViewModel.claimAmount)
                                     .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 14))
+                                    .keyboardType(.numberPad)
                                 
                                 Divider()
                                     .padding(.horizontal, 10)

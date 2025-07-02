@@ -28,7 +28,7 @@ class DashboardViewModel: ObservableObject {
         }
         
         let url = Constants.baseUrl.rawValue + Constants.punchingstatusUrl.rawValue
-        guard let urls = URL(string: url) else {
+        guard URL(string: url) != nil else {
             errorMessage = NetworkError.badURL.localizedDescription
             return
         }

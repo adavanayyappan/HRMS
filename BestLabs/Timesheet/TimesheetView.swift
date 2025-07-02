@@ -65,36 +65,41 @@ struct TimesheetView: View {
     
     var body: some View {
         VStack {
-            if viewModel.isLoading {
-                ProgressView("Loading...")
-            } else if let _ = viewModel.errorMessage {
-                EmptyView()
-            } else {
-                VStack {
-                    TimesheetHeaderView(showDatePicker: $showDatePicker)
-                    
-                    if showDatePicker {
-                        DatePicker("Select a Date", selection: $internalSelectedDate, displayedComponents: .date)
-                            .datePickerStyle(GraphicalDatePickerStyle())
-                            .onChange(of: internalSelectedDate) { newDate in
-                                // Format the date and pass it back to TimesheetViewModel
-                                let formatter = DateFormatter()
-                                formatter.dateFormat = "yyyy-MM"
-                                viewModel.selectedDate = formatter.string(from: newDate)
-                                showDatePicker.toggle()
-                        }
-                        .foregroundColor(.white)
-                        .padding()
+            VStack {
+                TimesheetHeaderView(showDatePicker: $showDatePicker)
+                
+                if showDatePicker {
+                    DatePicker("Select a Date", selection: $internalSelectedDate, displayedComponents: .date)
+                        .datePickerStyle(GraphicalDatePickerStyle())
+                        .onChange(of: internalSelectedDate) { newDate in
+                            // Format the date and pass it back to TimesheetViewModel
+                            let formatter = DateFormatter()
+                            formatter.dateFormat = "yyyy-MM"
+                            viewModel.selectedDate = formatter.string(from: newDate)
+                            viewModel.getTimeSheetData()
+                            showDatePicker.toggle()
                     }
-                    
-                    List(viewModel.data) { item in
-                       TimeCardView(item: item)
-                            .listRowInsets(EdgeInsets())
-                    }
-                    .listStyle(.plain)
-                    .frame(maxWidth: .infinity)
-                    .frame(maxHeight: .infinity)
+                    .foregroundColor(.white)
+                    .padding()
                 }
+            }
+            
+            if viewModel.isLoading {
+                Spacer()
+                ProgressView("Loading...")
+                Spacer()
+            } else if let _ = viewModel.errorMessage {
+                Spacer()
+                EmptyView()
+                Spacer()
+            } else {
+                List(viewModel.data) { item in
+                   TimeCardView(item: item)
+                        .listRowInsets(EdgeInsets())
+                }
+                .listStyle(.plain)
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: .infinity)
             }
         }
         .onAppear {

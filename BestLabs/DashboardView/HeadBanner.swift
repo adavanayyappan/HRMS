@@ -35,7 +35,7 @@ struct HeaderBanner: View {
                         .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 18))
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    Text("iOS Developer")
+                    Text("")
                         .font(Fonts.custom(Fonts.CustomFont.lexenddeca, size: 14))
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity, alignment: .leading)

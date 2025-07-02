@@ -39,7 +39,7 @@ class ImageFetcher {
             }
             
             // Create the HTTP body
-            let httpBody = createMultipartBody(parameters: parameters, boundary: boundary, image: image)
+        let httpBody = createMultipartBody(parameters: parameters, boundary: boundary, image: image, fileName: fileName)
             request.httpBody = httpBody
             
             // Create the URLSession and perform the request

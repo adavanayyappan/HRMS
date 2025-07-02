@@ -11,20 +11,8 @@ struct ImageViewerView: View {
     @Binding var showImageViewer: Bool
 
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Button(action: {
-                    showImageViewer = false
-                }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .font(.title)
-                        .foregroundColor(.secondary)
-                }
-                .padding()
-            }
-
-            Spacer()
+        ZStack(alignment: .topLeading) {
+            Color.black.ignoresSafeArea()
 
             AsyncImage(url: imageURL) { phase in
                 switch phase {
@@ -43,9 +31,25 @@ struct ImageViewerView: View {
                 }
             }
 
-            Spacer()
+            HStack {
+                Button(action: {
+                    showImageViewer = false
+                }) {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.black.opacity(0.5))
+                        .clipShape(Circle())
+                }
+
+                Text("Leave Attachment")
+                    .foregroundColor(.white)
+                    .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 24))
+            }
+            .padding(.top, 44)
+            .padding(.horizontal)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
+
     }
 }
 

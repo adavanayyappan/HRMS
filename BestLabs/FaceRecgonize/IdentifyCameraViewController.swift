@@ -37,9 +37,11 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
     private var imagePath: String = AppStorageManager.value(forKey: AppStorageKeys.KEY_EMP_IMAGE, defaultValue: "")
     var latitude: String = ""
     var longitude: String = ""
+    var serverImage: UIImage? = nil
     
     let changeButton = UIButton(type: .system)
     weak var delegate: IdentifyCameraViewControllerDelegate?
+    private var hasPostedPunch = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,7 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .photo
         
-        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+        guard let videoCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
         let videoInput: AVCaptureDeviceInput
         
         do {
@@ -78,10 +80,10 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
         view.layer.addSublayer(previewLayer)
         
         view.bringSubviewToFront(changeButton)
-        
-        captureSession.startRunning()
+       
         
         serverImageUrl = Constants.imageURL.rawValue + imagePath
+        fetchServerImage()
         
         // Set the delegate
         locationManager.delegate = self
@@ -98,27 +100,64 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        DispatchQueue.global(qos: .userInitiated).async {
+            if !self.captureSession.isRunning {
+                self.captureSession.startRunning()
+            }
+        }
+    }
+
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        DispatchQueue.global(qos: .userInitiated).async {
+            if self.captureSession.isRunning {
+                self.captureSession.stopRunning()
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        DispatchQueue.global(qos: .userInitiated).async {
+            if self.captureSession.isRunning {
+                self.captureSession.stopRunning()
+            }
+        }
+    }
+
+
+    
     func setupButton() {
         // Add a button to capture image
         changeButton.setTitle("Change Face", for: .normal)
         changeButton.addTarget(self, action: #selector(captureButtonTapped), for: .touchUpInside)
         changeButton.translatesAutoresizingMaskIntoConstraints = false
-        changeButton.backgroundColor = .brown
+        changeButton.backgroundColor = .primarycolor
         changeButton.tintColor = .white
         view.addSubview(changeButton)
         
         NSLayoutConstraint.activate([
-            changeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            changeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            changeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            changeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             changeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             changeButton.heightAnchor.constraint(equalToConstant: 50.0),
-            changeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            changeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
     
     @objc private func captureButtonTapped() {
-        let vc = AddCameraViewController()
-        self.present(vc, animated: true)
+        self.captureSession.stopRunning()
+        self.dismiss(animated: true) {
+                if let scene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                   let rootVC = scene.windows.first(where: { $0.isKeyWindow })?.rootViewController {
+                    let vc = AddCameraViewController()
+                    rootVC.present(vc, animated: true)
+                }
+            }
     }
     
     func setupTabBar() {
@@ -164,28 +203,23 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
             
             DispatchQueue.main.async {
                 if let results = req.results, results.count > 0 {
-                    self.captureSession.stopRunning()
                     let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
                     let image = UIImage(ciImage: ciImage)
                     
-                    DispatchQueue.global().async {
-                        ImageFetcher.fetchImage(from: self.serverImageUrl) { serverImage in
-                            guard let serverImage = serverImage else {
-                                self.captureSession.startRunning()
-                                print("Failed to fetch server image")
-                                return
-                            }
-
-                            if let similarity = self.faceNet?.compare(image1: serverImage, with: image) {
-                                print("Similarity score: \(similarity)")
-                                if similarity > self.THRESHOLD {
+                    guard let serverImage = self.serverImage else {
+                        print("Failed to fetch server image")
+                        self.fetchServerImage()
+                        return
+                    }
+                    
+                    if let similarity = self.faceNet?.compare(image1: serverImage, with: image) {
+                        print("Similarity score: \(similarity)")
+                        if similarity > self.THRESHOLD {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                if !self.hasPostedPunch {
+                                    self.hasPostedPunch = true
                                     self.postPunchData()
-                                } else {
-                                    self.captureSession.startRunning()
                                 }
-                            } else {
-                                self.captureSession.startRunning()
-                                print("Failed to compare images")
                             }
                         }
                     }
@@ -202,6 +236,18 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
                 self.captureSession.startRunning()
                 print("Failed to perform request:", reqErr)
             }
+        }
+    }
+    
+    func fetchServerImage() {
+        ImageFetcher.fetchImage(from: self.serverImageUrl) { serverImage in
+            guard let serverImage = serverImage else {
+                self.captureSession.startRunning()
+                print("Failed to fetch server image")
+                return
+            }
+
+            self.serverImage = serverImage
         }
     }
     
@@ -322,8 +368,12 @@ extension IdentifyCameraViewController {
                 return
             }
             
-            self?.dismiss(animated: true)
+            self?.showToast(message: "Punch me success")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                self?.dismiss(animated: true)
+            }
             
+
         }
         .store(in: &cancellables)
     }
@@ -337,3 +387,40 @@ extension IdentifyCameraViewController {
     }
 }
 
+extension UIViewController {
+    func showToast(message: String, duration: Double = 2.0) {
+        let toastLabel = UILabel()
+        toastLabel.text = message
+        toastLabel.textColor = .white
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        toastLabel.textAlignment = .center
+        toastLabel.font = UIFont.systemFont(ofSize: 14)
+        toastLabel.numberOfLines = 0
+        toastLabel.alpha = 0.0
+        toastLabel.layer.cornerRadius = 10
+        toastLabel.clipsToBounds = true
+
+        let maxSizeTitle = CGSize(width: self.view.bounds.size.width - 40, height: self.view.bounds.size.height)
+        var expectedSizeTitle = toastLabel.sizeThatFits(maxSizeTitle)
+        expectedSizeTitle.width += 20
+        expectedSizeTitle.height += 10
+        toastLabel.frame = CGRect(
+            x: (self.view.frame.size.width - expectedSizeTitle.width) / 2,
+            y: self.view.frame.size.height - 100,
+            width: expectedSizeTitle.width,
+            height: expectedSizeTitle.height
+        )
+
+        self.view.addSubview(toastLabel)
+
+        UIView.animate(withDuration: 0.5, animations: {
+            toastLabel.alpha = 1.0
+        }) { _ in
+            UIView.animate(withDuration: 0.5, delay: duration, options: .curveEaseOut, animations: {
+                toastLabel.alpha = 0.0
+            }, completion: { _ in
+                toastLabel.removeFromSuperview()
+            })
+        }
+    }
+}

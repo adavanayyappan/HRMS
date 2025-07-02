@@ -15,6 +15,7 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     var previewLayer: AVCaptureVideoPreviewLayer!
     var detectedImage: UIImage?
     let captureButton = UIButton(type: .system)
+    private let activityIndicator = UIActivityIndicatorView(style: .large)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,8 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = .photo
         
-        guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else { return }
+      
+        guard let videoCaptureDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front) else { return }
         let videoInput: AVCaptureDeviceInput
         
         do {
@@ -55,8 +57,47 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         
         view.bringSubviewToFront(captureButton)
         
-        captureSession.startRunning()
+        DispatchQueue.global(qos: .userInitiated).async {
+            if !self.captureSession.isRunning {
+                self.captureSession.startRunning()
+            }
+        }
+        
+        setupActivityIndicator()
     }
+    
+    private func setupActivityIndicator() {
+        activityIndicator.center = view.center
+        activityIndicator.color = .gray
+        activityIndicator.hidesWhenStopped = true
+        view.addSubview(activityIndicator)
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+    }
+
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        DispatchQueue.global(qos: .userInitiated).async {
+            if self.captureSession.isRunning {
+                self.captureSession.stopRunning()
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        DispatchQueue.global(qos: .userInitiated).async {
+            if self.captureSession.isRunning {
+                self.captureSession.stopRunning()
+            }
+        }
+    }
+
     
     func setupButton() {
         // Add a button to capture image
@@ -70,11 +111,11 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         captureButton.isEnabled = false
         
         NSLayoutConstraint.activate([
-            captureButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            captureButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            captureButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            captureButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             captureButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             captureButton.heightAnchor.constraint(equalToConstant: 50.0),
-            captureButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            captureButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
         ])
     }
     
@@ -120,10 +161,18 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             
             DispatchQueue.main.async {
                 if let results = req.results, results.count > 0 {
-                    self.captureButton.isEnabled = true
-                    self.captureSession.stopRunning()
                     let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-                    self.detectedImage = UIImage(ciImage: ciImage)
+                    let context = CIContext()
+
+                    if let cgImage = context.createCGImage(ciImage, from: ciImage.extent) {
+                        let orientedImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
+                        self.detectedImage = orientedImage
+                        self.captureButton.isEnabled = true
+                    } else {
+                        print("Failed to create CGImage from CIImage")
+                    }
+
+
                 }
             }
         }
@@ -148,6 +197,12 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             return
         }
         
+        // Show loader
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimating()
+            self.captureButton.isEnabled = false
+        }
+        
         let url = Constants.baseUrl.rawValue + Constants.uploadFaceUrl.rawValue
         let imageUrl = URL(string: url)!
         
@@ -168,25 +223,41 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             case .success(let data):
                 // Handle success
                 print("Upload successful: \(data)")
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
                 do {
                     let response = try JSONDecoder().decode(FaceAddResponse.self, from: data)
                     print("Status: \(response.status)")
                     print("Face Image: \(response.faceImage)")
                     let imagePath = response.faceImage.replacingOccurrences(of: "http://portal.bsnet.biz/hrms/media/face/", with: "")
-                    AppStorageManager.setValue(response.faceImage, forKey: AppStorageKeys.KEY_EMP_IMAGE)
+                    AppStorageManager.setValue(imagePath, forKey: AppStorageKeys.KEY_EMP_IMAGE)
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        if self.captureSession.isRunning {
+                            self.captureSession.stopRunning()
+                        }
+                    }
                     DispatchQueue.main.async {
                         self.dismiss(animated: true)
                     }
                 } catch {
                     print("Decoding failed: \(data)")
                     self.showAlert(message: "Decoding failed")
-                    self.captureSession.startRunning()
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        if !self.captureSession.isRunning {
+                            self.captureSession.startRunning()
+                        }
+                    }
                 }
                 
             case .failure(let error):
                 // Handle error
                 print("Upload failed: \(error)")
-                self.captureSession.startRunning()
+                DispatchQueue.global(qos: .userInitiated).async {
+                    if !self.captureSession.isRunning {
+                        self.captureSession.startRunning()
+                    }
+                }
                 self.showAlert(message: "Upload failed")
             }
         }

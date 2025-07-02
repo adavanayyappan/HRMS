@@ -36,7 +36,10 @@ struct DashboardView: View {
             .frame(width: geometry.size.width, height: geometry.size.height)
             .clipped()
             .edgesIgnoringSafeArea(.all)
-            .sheet(isPresented: $showModal) {
+            .sheet(isPresented: $showModal, onDismiss: {
+                // Refresh after dismissing the sheet
+                viewModel.getTimeSheetStatus()
+            }) {
                 let imagePath: String = AppStorageManager.value(forKey: AppStorageKeys.KEY_EMP_IMAGE, defaultValue: "")
                 if !imagePath.isEmpty {
                     IdentifyCameraViewControllerRepresentable()

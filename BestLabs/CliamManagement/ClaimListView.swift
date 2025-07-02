@@ -12,6 +12,7 @@ struct ClaimListView: View {
     var item: ClaimResponse.Claim
     var convertedDate : String = ""
     var convertedMonth : String = ""
+    var convertedYear : String = ""
     
     init(item: ClaimResponse.Claim) {
         self.item = item
@@ -20,6 +21,7 @@ struct ClaimListView: View {
         }
         self.convertedDate = Dater.shared.string(from: date, format: "dd") ?? ""
         self.convertedMonth = Dater.shared.string(from: date, format: "MMM") ?? ""
+        self.convertedYear = Dater.shared.string(from: date, format: "yyyy") ?? ""
     }
     
     var body: some View {
@@ -42,6 +44,10 @@ struct ClaimListView: View {
                     Text(convertedDate)
                         .foregroundColor(.darkGray)
                         .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 25))
+                    
+                    Text(convertedYear)
+                        .foregroundColor(.darkGray)
+                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 15))
                     
                     Spacer()
                     

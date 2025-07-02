@@ -97,11 +97,12 @@ extension MainTabbedView {
             Image(imageName)
                 .resizable()
                 .renderingMode(.template)
-                .foregroundColor(isActive ? Color.primarycolor : .gray)
+                .foregroundColor(isActive ? Color.activeMenus : Color.unselectediconcolor)
                 .frame(width: 20, height: 20)
                 Text(title)
                     .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 8))
-                    .foregroundColor(isActive ? Color.primarycolor : .gray)
+                    .foregroundColor(isActive ? Color.activeMenus : Color.unselectediconcolor)
+                    .padding(.bottom, 5)
         }
     }
 }

@@ -91,6 +91,7 @@
 		398E4DD4A8D41639088BA919 /* Pods_BestLabs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C96048B22A4C7E55F9CB587C /* Pods_BestLabs.framework */; };
 		8944C6052DB3CED600F5252F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944C6042DB3CED600F5252F /* LocationManager.swift */; };
 		8944C6072DB3DB5200F5252F /* ImageViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8944C6062DB3DB5200F5252F /* ImageViewerView.swift */; };
+		899FE4542E1535D300519FD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 899FE4532E1535D300519FD3 /* LaunchScreen.storyboard */; };
 		89D235F22DEA0F9E0026F782 /* BestLabsLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 89D235F12DEA0F9E0026F782 /* BestLabsLibrary */; };
 		D79184992D8536EA00ADA912 /* ForgotPasswordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79184982D8536EA00ADA912 /* ForgotPasswordModel.swift */; };
 		D791849B2D8536FD00ADA912 /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D791849A2D8536F200ADA912 /* ForgotPasswordViewModel.swift */; };
@@ -187,6 +188,7 @@
 		5DDD516E97E78A919540F0F4 /* Pods-BestLabs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BestLabs.debug.xcconfig"; path = "Target Support Files/Pods-BestLabs/Pods-BestLabs.debug.xcconfig"; sourceTree = "<group>"; };
 		8944C6042DB3CED600F5252F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		8944C6062DB3DB5200F5252F /* ImageViewerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerView.swift; sourceTree = "<group>"; };
+		899FE4532E1535D300519FD3 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C96048B22A4C7E55F9CB587C /* Pods_BestLabs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BestLabs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D79184982D8536EA00ADA912 /* ForgotPasswordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordModel.swift; sourceTree = "<group>"; };
 		D791849A2D8536F200ADA912 /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		0013EB7B2B8DD7000005D315 = {
 			isa = PBXGroup;
 			children = (
+				899FE4532E1535D300519FD3 /* LaunchScreen.storyboard */,
 				0087E3AB2B9366B5002E0D17 /* DropdownPickerView.swift */,
 				00AA73A92B93145500BA2F68 /* LeaveapplyView.swift */,
 				00D490522B91A31800386EC9 /* CircleButton.swift */,
@@ -559,6 +562,7 @@
 				0013EB8F2B8DD7020005D315 /* Preview Assets.xcassets in Resources */,
 				044341142C25B06E00A1E972 /* brownbold.ttf in Resources */,
 				045DBF612CA8231D00DA0C71 /* PrivacyInfo.xcprivacy in Resources */,
+				899FE4542E1535D300519FD3 /* LaunchScreen.storyboard in Resources */,
 				0013EB8C2B8DD7020005D315 /* Assets.xcassets in Resources */,
 				D79184A12D8557C100ADA912 /* lexenddeca.ttf in Resources */,
 			);
@@ -828,7 +832,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"BestLabs/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 787BF49PYA;
@@ -839,8 +843,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "BestLabs HRMS";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "I need access to the camera in order render live feed";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to provide better services even when the app is in the background.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide better services.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to confirm that you are checking in or out from your designated office location during work hours.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -877,7 +881,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"BestLabs/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 787BF49PYA;
@@ -888,8 +892,8 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "BestLabs HRMS";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.business";
 				INFOPLIST_KEY_NSCameraUsageDescription = "I need access to the camera in order render live feed";
-				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to provide better services even when the app is in the background.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to provide better services.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We use your location to confirm that you are checking in or out from your designated office location during work hours.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select images.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

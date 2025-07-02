@@ -11,8 +11,10 @@ import Combine
 
 class LoginViewModel: ObservableObject {
     var data: LoginUserModel?
-    @Published var username: String = "98765432"
-    @Published var password: String = "Password@123"
+//    @Published var username: String = "98765432"
+//    @Published var password: String = "Password@123"
+    @Published var username: String = ""
+    @Published var password: String = ""
     @Published var emailError: String?
     @Published var passwordError: String?
     @Published var isFormValid: Bool = false

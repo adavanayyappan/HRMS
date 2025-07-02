@@ -16,7 +16,7 @@ struct SplashScreenView: View {
         GeometryReader { geometry in
             ZStack {
                 if isActive {
-                    if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+                    if locationManager.authorizationStatus == .authorizedWhenInUse {
                             LoginScreenView()
                         } else if locationManager.authorizationStatus == .denied {
                             ZStack {

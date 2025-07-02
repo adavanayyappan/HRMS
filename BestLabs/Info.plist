@@ -38,7 +38,9 @@
 	<string>AppIcon</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>We use your location to confirm that you are checking in or out from your designated office location during work hours.</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We need location access even when the app is in the background to provide location-based alerts.</string>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
 </dict>
 </plist>

@@ -15,7 +15,7 @@ struct ForgotPasswordView: View {
         ScrollView {
             VStack {
                 ZStack(alignment: .top) {
-                    Image.dashboardBg
+                    Image.splashscreen
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(height: 200)

@@ -12,8 +12,9 @@ struct LeaveListView: View {
     var item: LeaveRequestListResponse.Leave
     var convertedDate : String = ""
     var convertedMonth : String = ""
-    @State private var showImageViewer = false
-    @State private var imageURL: URL?
+    var convertedYear : String = ""
+    @State var showImageViewer = false
+    @State var imageURL: String? = nil
     
     init(item: LeaveRequestListResponse.Leave) {
         self.item = item
@@ -22,6 +23,7 @@ struct LeaveListView: View {
         }
         self.convertedDate = Dater.shared.string(from: date, format: "dd") ?? ""
         self.convertedMonth = Dater.shared.string(from: date, format: "MMM") ?? ""
+        self.convertedYear = Dater.shared.string(from: date, format: "yyyy") ?? ""
     }
     
     var body: some View {
@@ -44,6 +46,10 @@ struct LeaveListView: View {
                     Text(convertedDate)
                         .foregroundColor(.darkGray)
                         .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 25))
+                    
+                    Text(convertedYear)
+                        .foregroundColor(.darkGray)
+                        .font(Fonts.custom(Fonts.CustomFont.brownBold, size: 15))
                     
                     Spacer()
                     
@@ -94,8 +100,8 @@ struct LeaveListView: View {
                         Spacer()
                         if let attachment = item.leaveAttachment, !attachment.isEmpty {
                             Button(action: {
-                                imageURL = URL(string: attachment)
-                                showImageViewer = true
+                                imageURL = attachment
+                                showImageViewer = imageURL != nil
                             }) {
                                 Image(systemName: "paperclip")
                                     .font(.system(size: 20))
@@ -131,9 +137,9 @@ struct LeaveListView: View {
             )
         )
         .sheet(isPresented: $showImageViewer) {
-            if let url = imageURL {
-                ImageViewerView(imageURL: url, showImageViewer: $showImageViewer)
-            }
+//            if let url = imageURL {
+//                ImageViewerView(imageURL: URL(string: url)!, showImageViewer: $showImageViewer)
+//            }
         }
     }
 }
