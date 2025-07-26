@@ -88,5 +88,6 @@ class Tools {
         UIGraphicsEndImageContext()
         return scaledImage
     }
+    
 }
 

@@ -16,6 +16,30 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     var detectedImage: UIImage?
     let captureButton = UIButton(type: .system)
     private let activityIndicator = UIActivityIndicatorView(style: .large)
+    
+    private let statusLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.numberOfLines = 2
+        label.layer.cornerRadius = 8
+        label.clipsToBounds = true
+        label.isHidden = true
+        return label
+    }()
+
+    private let closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Close", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.layer.cornerRadius = 8
+        button.clipsToBounds = true
+        return button
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +88,35 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         }
         
         setupActivityIndicator()
+        
+        view.addSubview(statusLabel)
+
+        NSLayoutConstraint.activate([
+            statusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            statusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            statusLabel.bottomAnchor.constraint(equalTo: captureButton.topAnchor, constant: -10),
+            statusLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 40)
+        ])
+
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(closeButton)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            closeButton.widthAnchor.constraint(equalToConstant: 60),
+            closeButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
     }
     
+    @objc private func closeButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     private func setupActivityIndicator() {
         activityIndicator.center = view.center
         activityIndicator.color = .gray
@@ -149,42 +200,81 @@ class AddCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
-        
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        
+
         let request = VNDetectFaceRectanglesRequest { (req, err) in
-            
             if let err = err {
                 print("Failed to detect faces:", err)
+                self.showStatus("No Faces Detected")
                 return
             }
-            
-            DispatchQueue.main.async {
-                if let results = req.results, results.count > 0 {
-                    let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-                    let context = CIContext()
 
-                    if let cgImage = context.createCGImage(ciImage, from: ciImage.extent) {
-                        let orientedImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
-                        self.detectedImage = orientedImage
-                        self.captureButton.isEnabled = true
-                    } else {
-                        print("Failed to create CGImage from CIImage")
-                    }
-
-
+            if let results = req.results as? [VNFaceObservation], let face = results.first {
+                let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+                let context = CIContext()
+                guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else {
+                    print("Failed to create CGImage from CIImage")
+                    return
                 }
+
+                let orientedImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
+                DispatchQueue.main.async {
+                    self.hideStatus()
+                    self.cropFace(from: orientedImage, with: face)
+                }
+            } else {
+                self.showStatus("No Faces Detected")
             }
         }
-        
+
         DispatchQueue.global(qos: .userInteractive).async {
             let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:])
-            do {
-                try handler.perform([request])
-            } catch let reqErr {
-                self.captureSession.startRunning()
-                print("Failed to perform request:", reqErr)
-            }
+            try? handler.perform([request])
+        }
+    }
+
+    
+    private func cropFace(from image: UIImage, with observation: VNFaceObservation) {
+        guard let cgImage = image.cgImage else { return }
+
+        let boundingBox = observation.boundingBox
+        let width = CGFloat(cgImage.width)
+        let height = CGFloat(cgImage.height)
+
+        let faceRect = CGRect(
+            x: boundingBox.origin.x * width,
+            y: (1 - boundingBox.origin.y - boundingBox.height) * height,
+            width: boundingBox.width * width,
+            height: boundingBox.height * height
+        )
+
+        guard let croppedCGImage = cgImage.cropping(to: faceRect) else { return }
+
+        let croppedImage = UIImage(cgImage: croppedCGImage, scale: image.scale, orientation: image.imageOrientation)
+        let resized = Tools.scaleImage(croppedImage, toSize: CGSize(width: 112, height: 112))
+
+        if let finalImage = resized {
+            self.processCapturedImage(finalImage)
+        }
+    }
+
+    
+    // Inside image capture delegate or similar:
+    func processCapturedImage(_ image: UIImage) {
+        self.detectedImage = image
+        self.captureButton.isEnabled = true
+    }
+
+    private func showStatus(_ text: String) {
+        DispatchQueue.main.async {
+            self.statusLabel.text = text
+            self.statusLabel.isHidden = false
+        }
+    }
+
+    private func hideStatus() {
+        DispatchQueue.main.async {
+            self.statusLabel.isHidden = true
         }
     }
     

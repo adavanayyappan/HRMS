@@ -43,6 +43,31 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
     weak var delegate: IdentifyCameraViewControllerDelegate?
     private var hasPostedPunch = false
     
+    private let statusLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .white
+        label.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.numberOfLines = 2
+        label.layer.cornerRadius = 8
+        label.clipsToBounds = true
+        label.isHidden = true
+        return label
+    }()
+
+    private let closeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Close", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.layer.cornerRadius = 8
+        button.clipsToBounds = true
+        return button
+    }()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
@@ -88,6 +113,39 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
         // Set the delegate
         locationManager.delegate = self
         
+        view.addSubview(statusLabel)
+
+        NSLayoutConstraint.activate([
+            statusLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            statusLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            statusLabel.bottomAnchor.constraint(equalTo: changeButton.topAnchor, constant: -10),
+            statusLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 40)
+        ])
+
+        statusLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(closeButton)
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            closeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            closeButton.widthAnchor.constraint(equalToConstant: 60),
+            closeButton.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+
+    }
+    
+    @objc private func closeButtonTapped() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         // Check the current authorization status
         let authorizationStatus = locationManager.authorizationStatus
         
@@ -97,16 +155,6 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
         } else {
             // Handle the current authorization status
             handleAuthorizationStatus(authorizationStatus)
-        }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        DispatchQueue.global(qos: .userInitiated).async {
-            if !self.captureSession.isRunning {
-                self.captureSession.startRunning()
-            }
         }
     }
 
@@ -192,7 +240,7 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        
+
         let request = VNDetectFaceRectanglesRequest { (req, err) in
             
             if let err = err {
@@ -201,44 +249,91 @@ class IdentifyCameraViewController: UIViewController, AVCaptureVideoDataOutputSa
                 return
             }
             
-            DispatchQueue.main.async {
-                if let results = req.results, results.count > 0 {
-                    let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-                    let image = UIImage(ciImage: ciImage)
-                    
-                    guard let serverImage = self.serverImage else {
-                        print("Failed to fetch server image")
-                        self.fetchServerImage()
-                        return
-                    }
-                    
-                    if let similarity = self.faceNet?.compare(image1: serverImage, with: image) {
-                        print("Similarity score: \(similarity)")
-                        if similarity > self.THRESHOLD {
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                                if !self.hasPostedPunch {
-                                    self.hasPostedPunch = true
-                                    self.postPunchData()
-                                }
-                            }
-                        }
-                    }
-                }
+            guard let results = req.results as? [VNFaceObservation], let face = results.first else {
+                print("No face detected")
+                self.showStatus("No face detected")
+                return
             }
             
+            DispatchQueue.main.async {
+                let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+                let context = CIContext()
+                
+                guard let cgImage = context.createCGImage(ciImage, from: ciImage.extent) else {
+                    print("Failed to create CGImage")
+                    return
+                }
+                
+                let orientedImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .right)
+                
+                // Crop only the captured image
+                guard let croppedCapturedImage = self.cropFace(from: orientedImage, with: face) else {
+                    print("Failed to crop captured image")
+                    return
+                }
+                
+                // Server image must be already preprocessed (112x112, face-aligned)
+                guard let knownFace = self.serverImage else {
+                    print("Server image not available")
+                    self.showStatus("Failed to load server image")
+                    self.fetchServerImage()
+                    return
+                }
+
+                if let similarity = self.faceNet?.compare(image1: croppedCapturedImage, with: knownFace) {
+                    print("Similarity score: \(similarity)")
+                    if similarity > self.THRESHOLD {
+                        self.hideStatus()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            if !self.hasPostedPunch {
+                                self.hasPostedPunch = true
+                                self.postPunchData()
+                            }
+                        }
+                    } else {
+                        print("Face does not match")
+                        self.showStatus("Face does not match")
+                    }
+                } else {
+                    print("Face comparison failed")
+                    self.showStatus("Face comparison failed")
+                }
+            }
         }
-        
+
         DispatchQueue.global(qos: .userInteractive).async {
             let handler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:])
             do {
                 try handler.perform([request])
-            } catch let reqErr {
+            } catch {
                 self.captureSession.startRunning()
-                print("Failed to perform request:", reqErr)
+                print("Failed to perform request:", error)
             }
         }
     }
+
     
+    private func cropFace(from image: UIImage, with observation: VNFaceObservation) -> UIImage? {
+        guard let cgImage = image.cgImage else { return nil }
+
+        let boundingBox = observation.boundingBox
+        let width = CGFloat(cgImage.width)
+        let height = CGFloat(cgImage.height)
+
+        let faceRect = CGRect(
+            x: boundingBox.origin.x * width,
+            y: (1 - boundingBox.origin.y - boundingBox.height) * height,
+            width: boundingBox.width * width,
+            height: boundingBox.height * height
+        )
+
+        guard let croppedCGImage = cgImage.cropping(to: faceRect) else { return nil }
+
+        let croppedImage = UIImage(cgImage: croppedCGImage, scale: image.scale, orientation: image.imageOrientation)
+        return Tools.scaleImage(croppedImage, toSize: CGSize(width: 112, height: 112))
+    }
+
+
     func fetchServerImage() {
         ImageFetcher.fetchImage(from: self.serverImageUrl) { serverImage in
             guard let serverImage = serverImage else {
@@ -281,6 +376,11 @@ extension IdentifyCameraViewController {
            case .authorizedWhenInUse, .authorizedAlways:
                // Permissions granted, start updating location
                locationManager.startUpdatingLocation()
+               DispatchQueue.global(qos: .userInitiated).async {
+                   if !self.captureSession.isRunning {
+                       self.captureSession.startRunning()
+                   }
+               }
            case .denied, .restricted:
                // Permissions denied, update the UI accordingly
                showLocationAccessDeniedAlert()
@@ -297,7 +397,10 @@ extension IdentifyCameraViewController {
            let alert = UIAlertController(title: "Location Access Denied",
                                          message: "Please enable location services in Settings.",
                                          preferredStyle: .alert)
-           alert.addAction(UIAlertAction(title: "OK", style: .default))
+           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+                   // Dismiss the current view controller after the alert is dismissed
+                   self.dismiss(animated: true)
+            }))
            present(alert, animated: true)
        }
        
@@ -385,6 +488,20 @@ extension IdentifyCameraViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default))
         present(alert, animated: true)
     }
+    
+    private func showStatus(_ text: String) {
+        DispatchQueue.main.async {
+            self.statusLabel.text = text
+            self.statusLabel.isHidden = false
+        }
+    }
+
+    private func hideStatus() {
+        DispatchQueue.main.async {
+            self.statusLabel.isHidden = true
+        }
+    }
+
 }
 
 extension UIViewController {

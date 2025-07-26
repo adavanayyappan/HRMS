@@ -103,19 +103,22 @@ class MobileFaceNet {
         }
 
     private func evaluate(embeddings: UnsafeMutablePointer<Float>) -> Float {
-        let embeddingsSize = 192
-        var dist: Float = 0
+        let sim = cosineSimilarity(embeddings, embeddings.advanced(by: embeddingsSize))
+        return sim // Value from -1 (opposite) to 1 (same)
+    }
+    
+    private func cosineSimilarity(_ a: UnsafePointer<Float>, _ b: UnsafePointer<Float>) -> Float {
+        var dot: Float = 0
+        var normA: Float = 0
+        var normB: Float = 0
+        
         for i in 0..<embeddingsSize {
-            dist += pow(embeddings[i] - embeddings[i + embeddingsSize], 2)
+            dot += a[i] * b[i]
+            normA += a[i] * a[i]
+            normB += b[i] * b[i]
         }
-        var same: Float = 0
-        for i in 0..<400 {
-            let threshold: Float = 0.01 * Float(i + 1)
-            if dist < threshold {
-                same += 1.0 / 400
-            }
-        }
-        return same
+        
+        return dot / (sqrt(normA) * sqrt(normB))
     }
 }
 
